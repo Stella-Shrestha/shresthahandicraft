@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lineage — Shrestha Handicraft Atelier</title>
+  <meta name="description" content="Editorial storytelling of 40+ years of Newar master sculptors, ancient Sanskrit iconometric canons, and lost-wax casting philosophy in Patan." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            patina: {
+              950: '#0B0C0E',
+              900: '#131518',
+              850: '#1A1D22',
+              800: '#1F2228',
+              50: '#F9F6F0',
+              100: '#F3ECE2'
+            },
+            gold: {
+              DEFAULT: '#D49B4B',
+              bright: '#F5C77E',
+              dark: '#B87A28'
+            },
+            copper: {
+              DEFAULT: '#B86B4B',
+              bright: '#E28766'
+            },
+            parchment: '#F3EED9'
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            mono: ['Space Grotesk', 'monospace'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-patina-50 dark:bg-patina-950 text-slate-800 dark:text-parchment font-sans min-h-screen transition-colors duration-300">
+
+  <!-- STICKY HEADER NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-white/90 dark:bg-patina-950/90 backdrop-blur-md border-b border-slate-200 dark:border-gold/20 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-lg bg-patina-100 dark:bg-patina-900 border border-gold/40 flex items-center justify-center text-gold shadow-sm group-hover:border-gold transition-colors">
+          <i data-lucide="flame" class="w-5 h-5"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-base tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha Handicraft</span>
+          <span class="font-mono text-[10px] text-gold tracking-widest uppercase">Sacred Metallurgy • Patan</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-patina-900/80 p-1.5 rounded-lg border border-slate-200 dark:border-slate-800">
+        <a href="index.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          <span class="text-copper">01</span> HOME
+        </a>
+        <a href="catalog.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          <span class="text-copper">02</span> CATALOG
+        </a>
+        <a href="lineage.html" class="px-3.5 py-1.5 font-mono text-xs font-semibold rounded-md text-gold bg-gold/10 border border-gold/30 flex items-center gap-1.5">
+          <span class="text-copper">03</span> LINEAGE
+        </a>
+        <a href="iconometry.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          <span class="text-copper">04</span> ICONOMETRY
+        </a>
+        <a href="tracker.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          <span class="text-copper">05</span> FOUNDRY LEDGER
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggleIcon" onclick="toggleTheme()" class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors">
+          <i data-lucide="sun" class="w-5 h-5"></i>
+        </button>
+
+        <button onclick="toggleCartDrawer()" class="flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-lg text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">ACQUISITIONS</span>
+          <span id="cartCount" class="w-5 h-5 rounded-full bg-copper text-white text-[11px] font-bold flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LINEAGE CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="mb-10">
+      <div class="flex items-center gap-2 font-mono text-xs text-copper tracking-widest uppercase">
+        <span class="w-3 h-0.5 bg-copper"></span> 40+ Year Newar Heritage
+      </div>
+      <h1 class="font-display text-4xl font-bold text-slate-900 dark:text-parchment mt-1">The Lineage of Tamrakar Master Sculptors</h1>
+      <p class="text-slate-600 dark:text-slate-400 text-sm max-w-2xl mt-1">
+        Patan (Lalitpur), the ancient City of Fine Arts, has preserved the lost-wax casting philosophy (*Cire Perdue*) since the Licchavi and Malla dynasties.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <!-- Editorial Text -->
+      <div class="lg:col-span-7 flex flex-col gap-6 text-slate-700 dark:text-slate-300 text-base leading-relaxed">
+        <p>
+          Founded by the Tamrakar clan over four decades ago, Shrestha Handicraft stands as one of the last authentic sacred metallurgy ateliers maintaining uninterrupted adherence to Sanskrit iconometric treatises.
+        </p>
+        
+        <div class="border-l-4 border-gold pl-5 py-2 my-2 font-display italic text-lg text-gold leading-normal bg-gold/5 rounded-r-lg">
+          "Without correct measurement, the deity cannot abide in the image. Iconometry is the breath of the bronze."
+          <div class="font-sans not-italic text-xs text-slate-500 mt-2">— Samarangana Sutradhara, Sloka 108</div>
+        </div>
+
+        <p>
+          Unlike modern commercial mass-casting, every statue commissioned in our Patan foundry begins with hand-carved beeswax blended with sal tree resin. Once melted away in the crucible furnace at 1,080°C, the void receives the molten Ashtadhatu alloy — creating a singular, unrepeatable masterpiece.
+        </p>
+      </div>
+
+      <!-- Atelier Verification Card -->
+      <div class="lg:col-span-5 bg-white dark:bg-patina-900 border border-gold/30 rounded-2xl p-6 shadow-xl flex flex-col gap-5">
+        <h3 class="font-display font-bold text-xl text-gold">Atelier Verification Standards</h3>
+        
+        <ul class="flex flex-col gap-4 text-xs">
+          <li class="flex gap-3">
+            <span class="font-mono font-bold text-gold">01</span>
+            <div><strong class="text-slate-900 dark:text-parchment">Alloy Spectrometry Assay:</strong> Certified breakdown of gold, silver, copper, and trace sacred elements.</div>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-mono font-bold text-gold">02</span>
+            <div><strong class="text-slate-900 dark:text-parchment">Angula Ratio Certification:</strong> High-precision laser measurement verifying symmetry tolerances under 0.2mm.</div>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-mono font-bold text-gold">03</span>
+            <div><strong class="text-slate-900 dark:text-parchment">Consecration Chamber:</strong> Statues prepared with hollow core chambers for sacred mantra scroll insertion by Buddhist monks.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- SLIDE-OVER ACQUISITION CART DRAWER -->
+  <div id="cartOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden items-center justify-end transition-opacity" onclick="closeCartOnOverlay(event)">
+    <div class="w-full max-w-md h-full bg-white dark:bg-patina-950 border-l border-slate-200 dark:border-gold/30 flex flex-col shadow-2xl">
+      <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-display font-bold text-lg text-slate-900 dark:text-parchment">Selected Acquisitions</h3>
+        <button onclick="toggleCartDrawer()" class="text-slate-500 hover:text-slate-900 dark:hover:text-parchment">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="cartBody" class="p-5 flex-1 overflow-y-auto flex flex-col gap-4"></div>
+
+      <div class="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-patina-900 flex flex-col gap-3">
+        <div class="flex justify-between font-mono text-sm text-slate-500 dark:text-slate-400">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0 USD</span>
+        </div>
+        <div class="flex justify-between font-mono text-sm text-slate-500 dark:text-slate-400">
+          <span>Escrow Insurance</span>
+          <span class="text-emerald-500 font-semibold">INCLUDED</span>
+        </div>
+        <div class="flex justify-between font-mono text-base font-bold text-slate-900 dark:text-parchment pt-2 border-t border-dashed border-slate-300 dark:border-slate-700">
+          <span>Total Escrow</span>
+          <span id="cartTotal" class="text-gold">$0 USD</span>
+        </div>
+
+        <button onclick="triggerCheckoutModal()" class="w-full py-3 bg-gradient-to-r from-gold to-copper text-white dark:text-patina-950 font-mono font-bold text-xs uppercase tracking-wider rounded-lg shadow-md hover:shadow-lg transition-all mt-2">
+          Initiate Escrow Acquisition
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-patina-900 border-t border-slate-200 dark:border-gold/20 mt-20 pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-200 dark:border-slate-800 text-xs">
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <i data-lucide="flame" class="w-5 h-5 text-gold"></i>
+          <span class="font-display font-bold text-sm tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha Handicraft</span>
+        </div>
+        <p class="text-slate-500 leading-relaxed">Preserving ancient licchavi lost-wax bronze casting, Ashtadhatu alloy smelting, and 24K gold-leaf fire gilding in Patan since 1982.</p>
+      </div>
+
+      <div>
+        <h5 class="font-display font-bold text-slate-900 dark:text-parchment mb-3 text-sm">Navigation</h5>
+        <ul class="flex flex-col gap-2 text-slate-500">
+          <li><a href="index.html" class="hover:text-gold transition-colors">Atelier Home</a></li>
+          <li><a href="catalog.html" class="hover:text-gold transition-colors">Museum Catalog</a></li>
+          <li><a href="lineage.html" class="hover:text-gold transition-colors">The Lineage</a></li>
+          <li><a href="iconometry.html" class="hover:text-gold transition-colors">Iconometry Builder</a></li>
+          <li><a href="tracker.html" class="hover:text-gold transition-colors">Foundry Ledger</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-display font-bold text-slate-900 dark:text-parchment mb-3 text-sm">Verification</h5>
+        <ul class="flex flex-col gap-2 text-slate-500">
+          <li>Patan Industrial Estate, Lalitpur, Nepal</li>
+          <li>Crucible Furnace #1-6 Operational</li>
+          <li>Assay Grade: 99.9% Ashtadhatu</li>
+          <li>Escrow Protocol: Secure Bank Wire</li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-display font-bold text-slate-900 dark:text-parchment mb-3 text-sm">Atelier Ledger</h5>
+        <p class="text-slate-500 mb-3">Subscribe for rare specimen releases and furnace crucible logs.</p>
+        <div class="flex gap-2">
+          <input type="email" placeholder="Email address..." class="px-3 py-2 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded text-slate-900 dark:text-parchment flex-1 text-xs font-mono" />
+          <button onclick="alert('Subscribed to Shrestha Atelier Ledger.')" class="px-4 py-2 bg-gold hover:bg-gold-bright text-white dark:text-patina-950 font-mono font-bold text-xs rounded">Join</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 flex flex-col sm:flex-row justify-between items-center text-slate-500 font-mono text-[11px] gap-2">
+      <span>© 2026 Shrestha Handicraft Atelier. All Rights Reserved.</span>
+      <span>Sanskrit Iconometry Standard // Shilpa Shastra Compliant</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
