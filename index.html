@@ -46,6 +46,15 @@
             display: ['Cinzel', 'serif'],
             mono: ['Space Grotesk', 'monospace'],
             sans: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            }
+          },
+          animation: {
+            marquee: 'marquee 25s linear infinite'
           }
         }
       }
@@ -72,6 +81,27 @@
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     }
+
+    /* Marquee Animation */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee {
+      display: flex !important;
+      width: max-content !important;
+      animation: marquee 25s linear infinite !important;
+    }
+
+    .animate-marquee:hover {
+      animation-play-state: paused !important;
+    }
   </style>
 </head>
 
@@ -81,7 +111,7 @@
   <!-- STICKY HEADER NAVIGATION -->
   <header
     class="sticky top-0 z-50 bg-white/90 dark:bg-patina-950/90 backdrop-blur-md border-b border-slate-200 dark:border-gold/20 transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+    <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
 
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-3 group">
@@ -142,10 +172,11 @@
   </header>
 
   <!-- MAIN HERO & CONTENT -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <main class="w-full">
 
     <!-- Hero Section -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
+    <div
+      class="grid grid-cols-1 max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:grid-cols-12 gap-10 items-center mb-16">
 
       <!-- Hero Left Column -->
       <div class="lg:col-span-7 flex flex-col gap-6">
@@ -207,7 +238,7 @@
       </div>
 
       <!-- Hero Right Column (Visual Card) -->
-      <div class="lg:col-span-5">
+      <div class="lg:col-span-5 relative">
         <div
           class="relative bg-white dark:bg-patina-900 border border-gold/30 rounded-2xl p-4 shadow-2xl overflow-hidden group">
           <div class="relative w-full h-[460px] rounded-xl overflow-hidden bg-black flex items-center justify-center">
@@ -228,87 +259,575 @@
             </div>
           </div>
         </div>
+
+        <!-- Floating Non-Stop Rotating Circular Text Stamp Seal Badge (Matching Reference Screenshot) -->
+        <div
+          class="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 z-20 w-36 h-36 sm:w-44 sm:h-44 rounded-full shadow-2xl transition-transform hover:scale-105 pointer-events-auto flex items-center justify-center">
+          <svg viewBox="0 0 200 200" width="100%" height="100%"
+            class="w-full h-full filter drop-shadow-xl overflow-visible" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+              <path id="rotatingStampTextPath" d="M 100, 100 m -74, 0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" />
+            </defs>
+
+            <!-- Base Outer Background & Outer Border Rings -->
+            <circle cx="100" cy="100" r="95" fill="#FAF7F2" stroke="#B86B4B" stroke-width="2.5" />
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#B86B4B" stroke-width="1" />
+            <circle cx="100" cy="100" r="58" fill="none" stroke="#B86B4B" stroke-width="1.5" stroke-dasharray="2 3" />
+
+            <!-- Twin Mountain Peak Line Art -->
+            <path d="M 64 114 L 80 90 L 92 107 L 115 94 L 138 114" stroke="#B86B4B" stroke-width="3" fill="none"
+              stroke-linecap="round" stroke-linejoin="round" />
+
+            <text x="100" y="133" text-anchor="middle" font-family="'Cinzel', serif" font-style="italic" font-size="12"
+              font-weight="600" fill="#B86B4B">
+              Verified
+            </text>
+
+            <!-- NONSTOP CONTINUOUS ROTATING TEXT RING -->
+            <g class="animate-[spin_18s_linear_infinite]" style="transform-origin: 100px 100px;">
+              <text font-family="'Plus Jakarta Sans', 'Space Grotesk', sans-serif" font-size="9.5" font-weight="600"
+                fill="#B86B4B" letter-spacing="2.2">
+                <textPath xlink:href="#rotatingStampTextPath" href="#rotatingStampTextPath" startOffset="0%">
+                  NEPAL • EST. TOURISM AUTHO • OFFICIALLY REGISTERED •
+                </textPath>
+              </text>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
 
-    <!-- PRATIMA LAKSHANA CANONICAL GRID -->
-    <div class="mt-16">
-      <div class="mb-8">
-        <div class="flex items-center gap-2 font-mono text-xs text-copper tracking-widest uppercase">
-          <span class="w-3 h-0.5 bg-copper"></span> Mathematical Canon
+    <!-- INFINITE LOGO LOOP TICKER -->
+    <div
+      class="w-full overflow-hidden bg-white/70 dark:bg-patina-900/60 border-y border-slate-200 dark:border-gold/20 py-4 backdrop-blur-md relative">
+      <div class="flex items-center gap-12 whitespace-nowrap animate-marquee">
+        <!-- Logo Items Set 1 -->
+        <div class="flex items-center gap-12 shrink-0">
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="award" class="w-4 h-4 text-gold"></i>
+            <span>PATAN MASTER SCULPTORS GUILD</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+            <span>99.9% ASHTADHATU ASSAY CERTIFIED</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="landmark" class="w-4 h-4 text-gold"></i>
+            <span>SACRED ART INSTITUTE OF KYOTO</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="scroll-text" class="w-4 h-4 text-copper"></i>
+            <span>SANSKRIT SHILPA SHASTRA CANON</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="flame" class="w-4 h-4 text-gold"></i>
+            <span>LICCHAVI LOST-WAX CIRE PERDUE</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+            <span>MONASTIC CONSECRATION SEALED</span>
+          </div>
         </div>
-        <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-parchment mt-1">Pratima Lakshana & Lost-Wax
-          Cycle</h2>
-        <p class="text-slate-600 dark:text-slate-400 text-sm max-w-2xl mt-1">
-          Every statue emerging from our Patan foundry adheres to strict iconometric proportions derived from ancient
-          Sanskrit treatises (*Samarangana Sutradhara*).
+
+        <!-- Duplicated Set 2 for infinite loop -->
+        <div class="flex items-center gap-12 shrink-0" aria-hidden="true">
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="award" class="w-4 h-4 text-gold"></i>
+            <span>PATAN MASTER SCULPTORS GUILD</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+            <span>99.9% ASHTADHATU ASSAY CERTIFIED</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="landmark" class="w-4 h-4 text-gold"></i>
+            <span>SACRED ART INSTITUTE OF KYOTO</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="scroll-text" class="w-4 h-4 text-copper"></i>
+            <span>SANSKRIT SHILPA SHASTRA CANON</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="flame" class="w-4 h-4 text-gold"></i>
+            <span>LICCHAVI LOST-WAX CIRE PERDUE</span>
+          </div>
+          <div class="flex items-center gap-2.5 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+            <span>MONASTIC CONSECRATION SEALED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWLY CONSECRATED SECTION -->
+    <section class="max-w-[1584px] mx-auto lg:py-[100px] py-[52px] px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col justify-between text-center items-center mb-12 gap-2">
+        <h2
+          class="font-display text-4xl sm:text-5xl font-extrabold tracking-wider uppercase text-slate-900 dark:text-parchment">
+          Newly Consecrated
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-sans leading-relaxed">
+          A rotating selection of recently completed pieces, cast this season in our Patan workshops.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Card 1 -->
+      <!-- 3 Specimen Cards Grid (Exact Match to Reference Screenshot) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1440px] mx-auto">
+
+        <!-- Card 1: Green Tara -->
         <div
-          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
-          <span class="font-mono text-xs text-gold/60 absolute top-4 right-4">01 // RATIO</span>
-          <div
-            class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
-            <i data-lucide="grid" class="w-5 h-5"></i>
+          class="bg-white dark:bg-patina-900 border border-slate-200/80 dark:border-gold/30 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group">
+          <!-- Top Image Container -->
+          <div class="relative w-full h-[380px] sm:h-[430px] overflow-hidden bg-black flex items-center justify-center">
+            <img src="assets/green_tara.jpg" alt="Green Tara Specimen"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <!-- Pill Badge Top Right -->
+            <div
+              class="absolute top-4 right-4 bg-black/90 backdrop-blur-md px-3 py-1 rounded-full border border-gold/40 text-gold font-mono text-[10px] tracking-wider uppercase font-bold shadow-md">
+              ASHTADHATU
+            </div>
           </div>
-          <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">Canonical Angula Grid</h4>
-          <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-            108 proportional units (*Angulas*) regulate torso, lotus petal radius, and mudra finger lengths for perfect
-            spiritual resonance.
-          </p>
+
+          <!-- Card Content Body -->
+          <div class="p-6 flex flex-col justify-between flex-1 gap-5 bg-white dark:bg-patina-900">
+
+            <!-- Sublabel & Title + Price -->
+            <div class="flex flex-col gap-1.5">
+              <div
+                class="flex items-center gap-1.5 font-mono text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-bold">
+                <span>SPECIMEN GRADE</span>
+                <div class="flex items-center gap-0.5 text-amber-500">
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                </div>
+              </div>
+
+              <div class="flex items-baseline justify-between gap-3 pt-1">
+                <h3 class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight">
+                  Green Tara Specimen
+                </h3>
+                <span class="font-mono font-bold text-xl sm:text-2xl text-amber-600 dark:text-gold shrink-0">
+                  $1,240
+                </span>
+              </div>
+            </div>
+
+            <!-- Specs Table (Dashed Divider Rows) -->
+            <div
+              class="flex flex-col text-xs font-mono gap-2.5 py-3 border-y border-dashed border-slate-200 dark:border-slate-800">
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Alloy Grade:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">Ashtadhatu (8-Metal)</span>
+              </div>
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Height:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">18.0 in (45.7 cm) (108 Angulas)</span>
+              </div>
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Raw Weight:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">18.6 kg</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <button onclick="openSpecimenModalByProdId('SH-001')"
+                class="px-3 py-3 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-700/80 hover:border-gold dark:hover:border-gold text-slate-900 dark:text-parchment hover:text-gold font-mono font-bold text-[11px] uppercase tracking-wider rounded-lg transition-colors shadow-sm text-center">
+                TRACK CASTING
+              </button>
+              <button onclick="addToCartByProdId('SH-001')"
+                class="px-3 py-3 bg-[#0d131d] hover:bg-slate-800 dark:bg-patina-950 dark:hover:bg-patina-800 border border-transparent text-white font-mono font-bold text-[11px] uppercase tracking-wider rounded-lg transition-colors shadow text-center">
+                ADD TO SELECTION
+              </button>
+            </div>
+
+          </div>
         </div>
 
-        <!-- Card 2 -->
+        <!-- Card 2: Chenrezig -->
         <div
-          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
-          <span class="font-mono text-xs text-gold/60 absolute top-4 right-4">02 // ALLOY</span>
-          <div
-            class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
-            <i data-lucide="layers" class="w-5 h-5"></i>
+          class="bg-white dark:bg-patina-900 border border-slate-200/80 dark:border-gold/30 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group">
+          <!-- Top Image Container -->
+          <div class="relative w-full h-[380px] sm:h-[430px] overflow-hidden bg-black flex items-center justify-center">
+            <img src="assets/mahakala.jpg" alt="Chenrezig Specimen"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <!-- Pill Badge Top Right -->
+            <div
+              class="absolute top-4 right-4 bg-black/90 backdrop-blur-md px-3 py-1 rounded-full border border-gold/40 text-gold font-mono text-[10px] tracking-wider uppercase font-bold shadow-md">
+              24K GOLD LEAF
+            </div>
           </div>
-          <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">Ashtadhatu 8-Metal Blend
-          </h4>
-          <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-            Crucible formulation blending Gold, Silver, Copper, Zinc, Lead, Tin, Iron, and Mercury traces aligning with
-            celestial frequencies.
-          </p>
+
+          <!-- Card Content Body -->
+          <div class="p-6 flex flex-col justify-between flex-1 gap-5 bg-white dark:bg-patina-900">
+
+            <!-- Sublabel & Title + Price -->
+            <div class="flex flex-col gap-1.5">
+              <div
+                class="flex items-center gap-1.5 font-mono text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-bold">
+                <span>SPECIMEN GRADE</span>
+                <div class="flex items-center gap-0.5 text-amber-500">
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                </div>
+              </div>
+
+              <div class="flex items-baseline justify-between gap-3 pt-1">
+                <h3 class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight">
+                  Chenrezig, Four-Armed
+                </h3>
+                <span class="font-mono font-bold text-xl sm:text-2xl text-amber-600 dark:text-gold shrink-0">
+                  $2,860
+                </span>
+              </div>
+            </div>
+
+            <!-- Specs Table (Dashed Divider Rows) -->
+            <div
+              class="flex flex-col text-xs font-mono gap-2.5 py-3 border-y border-dashed border-slate-200 dark:border-slate-800">
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Alloy Grade:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">24K Gold Leaf / Ashtadhatu</span>
+              </div>
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Height:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">24.0 in (60.9 cm) (124 Angulas)</span>
+              </div>
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Raw Weight:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">28.4 kg</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <button onclick="openSpecimenModalByProdId('SH-108')"
+                class="px-3 py-3 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-700/80 hover:border-gold dark:hover:border-gold text-slate-900 dark:text-parchment hover:text-gold font-mono font-bold text-[11px] uppercase tracking-wider rounded-lg transition-colors shadow-sm text-center">
+                TRACK CASTING
+              </button>
+              <button onclick="addToCartByProdId('SH-108')"
+                class="px-3 py-3 bg-[#0d131d] hover:bg-slate-800 dark:bg-patina-950 dark:hover:bg-patina-800 border border-transparent text-white font-mono font-bold text-[11px] uppercase tracking-wider rounded-lg transition-colors shadow text-center">
+                ADD TO SELECTION
+              </button>
+            </div>
+
+          </div>
         </div>
 
-        <!-- Card 3 -->
+        <!-- Card 3: Dancing Ganesh -->
         <div
-          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
-          <span class="font-mono text-xs text-gold/60 absolute top-4 right-4">03 // SHELL</span>
-          <div
-            class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
-            <i data-lucide="shield" class="w-5 h-5"></i>
+          class="bg-white dark:bg-patina-900 border border-slate-200/80 dark:border-gold/30 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group">
+          <!-- Top Image Container -->
+          <div class="relative w-full h-[380px] sm:h-[430px] overflow-hidden bg-black flex items-center justify-center">
+            <img src="assets/shakyamuni.jpg" alt="Dancing Ganesh Specimen"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <!-- Pill Badge Top Right -->
+            <div
+              class="absolute top-4 right-4 bg-black/90 backdrop-blur-md px-3 py-1 rounded-full border border-gold/40 text-gold font-mono text-[10px] tracking-wider uppercase font-bold shadow-md">
+              PATINA BRONZE
+            </div>
           </div>
-          <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">Patan Rice-Husk Shelling
-          </h4>
-          <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-            Beeswax model encased in 6 progressive layers of local Kathmandu Valley red clay, silt, and fermented rice
-            husk binder.
-          </p>
+
+          <!-- Card Content Body -->
+          <div class="p-6 flex flex-col justify-between flex-1 gap-5 bg-white dark:bg-patina-900">
+
+            <!-- Sublabel & Title + Price -->
+            <div class="flex flex-col gap-1.5">
+              <div
+                class="flex items-center gap-1.5 font-mono text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-bold">
+                <span>SPECIMEN GRADE</span>
+                <div class="flex items-center gap-0.5 text-amber-500">
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                  <i data-lucide="flame" class="w-3 h-3 fill-amber-500/20"></i>
+                </div>
+              </div>
+
+              <div class="flex items-baseline justify-between gap-3 pt-1">
+                <h3 class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight">
+                  Dancing Ganesh
+                </h3>
+                <span class="font-mono font-bold text-xl sm:text-2xl text-amber-600 dark:text-gold shrink-0">
+                  $890
+                </span>
+              </div>
+            </div>
+
+            <!-- Specs Table (Dashed Divider Rows) -->
+            <div
+              class="flex flex-col text-xs font-mono gap-2.5 py-3 border-y border-dashed border-slate-200 dark:border-slate-800">
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Alloy Grade:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">High-Copper Patina Bronze</span>
+              </div>
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Height:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">14.0 in (35.5 cm) (96 Angulas)</span>
+              </div>
+              <div class="flex justify-between items-center text-[11px]">
+                <span class="text-slate-500 dark:text-slate-400">Raw Weight:</span>
+                <span class="font-bold text-slate-900 dark:text-parchment">12.2 kg</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <button onclick="openSpecimenModalByProdId('SH-204')"
+                class="px-3 py-3 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-700/80 hover:border-gold dark:hover:border-gold text-slate-900 dark:text-parchment hover:text-gold font-mono font-bold text-[11px] uppercase tracking-wider rounded-lg transition-colors shadow-sm text-center">
+                TRACK CASTING
+              </button>
+              <button onclick="addToCartByProdId('SH-204')"
+                class="px-3 py-3 bg-[#0d131d] hover:bg-slate-800 dark:bg-patina-950 dark:hover:bg-patina-800 border border-transparent text-white font-mono font-bold text-[11px] uppercase tracking-wider rounded-lg transition-colors shadow text-center">
+                ADD TO SELECTION
+              </button>
+            </div>
+
+          </div>
         </div>
 
-        <!-- Card 4 -->
-        <div
-          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
-          <span class="font-mono text-xs text-gold/60 absolute top-4 right-4">04 // FINISH</span>
-          <div
-            class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
-            <i data-lucide="sparkles" class="w-5 h-5"></i>
-          </div>
-          <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">24K Gold Leaf Gilding</h4>
-          <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-            Traditional fire-gilding technique using high-purity gold foil burnished with agate stone and hand-painted
-            gold face details.
-          </p>
-        </div>
       </div>
-    </div>
+
+      <!-- VIEW ALL PACKAGES & CATALOG BUTTON -->
+      <div class="flex justify-center mt-12">
+        <a href="catalog.html"
+          class="px-8 py-3.5 bg-gradient-to-r from-amber-600/90 via-gold to-copper hover:from-amber-600 hover:to-copper-bright text-white font-mono font-bold text-xs uppercase tracking-widest rounded-xl shadow-lg hover:shadow-gold/30 transition-all transform hover:-translate-y-0.5 flex items-center gap-3">
+          <span>VIEW ALL PACKAGES & CATALOG</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- THE FOUNDRY METHOD SECTION (FROM WAX TO PRESENCE - EXACT MATCHING REFERENCE SCREENSHOT) -->
+    <section
+      class=" bg-patina-50 dark:bg-[#0B0C0E] text-slate-800 dark:text-parchment pb-[80px] lg:pb-[110px] transition-colors duration-300">
+      <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+
+        <!-- Main Top Split Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+          <!-- Left Column: Our Process & Headline & Stats -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+
+            <!-- Top Tag -->
+            <div
+              class="flex items-center gap-2.5 font-mono text-xs text-gold tracking-[0.25em] uppercase font-semibold">
+              <i data-lucide="flame" class="w-4 h-4 text-gold"></i>
+              <span>OUR PROCESS</span>
+            </div>
+
+            <!-- Headline -->
+            <h2
+              class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-parchment uppercase tracking-tight leading-none">
+              FROM WAX<br />
+              TO PRESENCE<span class="text-gold">.</span>
+            </h2>
+
+            <!-- Paragraph -->
+            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-sans leading-relaxed max-w-md">
+              Every figure emerging from our Patan foundry follows strict iconometric proportions derived from Sanskrit
+              treatises such as the Sāmāṅgara Sūtradhāra.
+            </p>
+
+            <!-- 3 Stat Badges -->
+            <div class="grid grid-cols-3 gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div class="flex flex-col gap-1 pr-3 border-r border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="sparkles" class="w-4 h-4 text-gold shrink-0"></i>
+                  <span class="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-parchment">600+</span>
+                </div>
+                <span class="font-mono text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Sacred
+                  Icons<br />Crafted</span>
+              </div>
+
+              <div class="flex flex-col gap-1 px-3 border-r border-slate-200 dark:border-slate-800">
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="users" class="w-4 h-4 text-gold shrink-0"></i>
+                  <span class="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-parchment">30+</span>
+                </div>
+                <span class="font-mono text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Master
+                  Artisans<br />&
+                  Specialists</span>
+              </div>
+
+              <div class="flex flex-col gap-1 pl-3">
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="clock" class="w-4 h-4 text-gold shrink-0"></i>
+                  <span class="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-parchment">4-8
+                    Weeks</span>
+                </div>
+                <span class="font-mono text-[10px] text-slate-500 dark:text-slate-400 leading-tight">Typical
+                  Casting<br />Timeline</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Card Matrix with Photos & Step List -->
+          <div
+            class="lg:col-span-7 bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/20 rounded-2xl p-5 sm:p-6 shadow-xl dark:shadow-2xl transition-colors duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-10 gap-6 items-center">
+
+              <!-- Right Steps List Column -->
+              <div class="md:col-span-10 flex flex-col divide-y divide-slate-200 dark:divide-slate-800/80">
+
+                <!-- Step 01 -->
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div class="flex items-start gap-4">
+                    <span
+                      class="font-display italic text-2xl sm:text-3xl font-light text-gold tracking-tight shrink-0">01</span>
+                    <div class="flex flex-col gap-0.5">
+                      <h4
+                        class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-parchment uppercase tracking-wide">
+                        WAX MODELLING</h4>
+                      <p class="text-slate-600 dark:text-slate-400 text-[11px] font-sans leading-relaxed">
+                        The sacred figure is modelled in wax according to prescribed proportions and iconometric
+                        measurements.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 shrink-0 text-gold">
+                    <i data-lucide="shapes" class="w-4 h-4 text-gold"></i>
+                    <span class="font-mono text-[9px] tracking-widest uppercase font-bold">FORM</span>
+                  </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div class="flex items-start gap-4">
+                    <span
+                      class="font-display italic text-2xl sm:text-3xl font-light text-gold tracking-tight shrink-0">02</span>
+                    <div class="flex flex-col gap-0.5">
+                      <h4
+                        class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-parchment uppercase tracking-wide">
+                        CLAY INVESTMENT</h4>
+                      <p class="text-slate-600 dark:text-slate-400 text-[11px] font-sans leading-relaxed">
+                        Local Kathmandu Valley clay and rice-husk material gradually encases the wax model in multiple
+                        layers.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 shrink-0 text-gold">
+                    <i data-lucide="layers" class="w-4 h-4 text-gold"></i>
+                    <span class="font-mono text-[9px] tracking-widest uppercase font-bold">SHELL</span>
+                  </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div class="flex items-start gap-4">
+                    <span
+                      class="font-display italic text-2xl sm:text-3xl font-light text-gold tracking-tight shrink-0">03</span>
+                    <div class="flex flex-col gap-0.5">
+                      <h4
+                        class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-parchment uppercase tracking-wide">
+                        SACRED ALLOY</h4>
+                      <p class="text-slate-600 dark:text-slate-400 text-[11px] font-sans leading-relaxed">
+                        The wax is removed and molten Ashtadhatu or selected bronze alloy is introduced into the
+                        prepared mould.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 shrink-0 text-gold">
+                    <i data-lucide="flame" class="w-4 h-4 text-gold"></i>
+                    <span class="font-mono text-[9px] tracking-widest uppercase font-bold">CAST</span>
+                  </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div class="flex items-start gap-4">
+                    <span
+                      class="font-display italic text-2xl sm:text-3xl font-light text-gold tracking-tight shrink-0">04</span>
+                    <div class="flex flex-col gap-0.5">
+                      <h4
+                        class="font-display font-semibold text-sm sm:text-base text-slate-900 dark:text-parchment uppercase tracking-wide">
+                        CHISELING & GILDING</h4>
+                      <p class="text-slate-600 dark:text-slate-400 text-[11px] font-sans leading-relaxed">
+                        Cold-chiseling, polishing, fire gilding and final hand-painted details complete the sacred
+                        image.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 shrink-0 text-gold">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-gold"></i>
+                    <span class="font-mono text-[9px] tracking-widest uppercase font-bold">FINISH</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Floating Features Bar (Exact Match from Screenshot) -->
+        <div
+          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 rounded-2xl p-5 shadow-xl dark:shadow-2xl grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 dark:divide-slate-800/80 transition-colors duration-300">
+
+          <!-- Feature 1 -->
+          <div class="flex items-center gap-3 px-2 py-1">
+            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+              <i data-lucide="globe" class="w-5 h-5"></i>
+            </div>
+            <div class="font-mono leading-snug text-slate-900 dark:text-parchment">
+              <strong class="block text-base font-bold">Worldwide</strong>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Secure Shipping</span>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="flex items-center gap-3 px-2 py-1">
+            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+              <i data-lucide="ruler" class="w-5 h-5"></i>
+            </div>
+            <div class="font-mono leading-snug text-slate-900 dark:text-parchment">
+              <strong class="block text-base font-bold">Custom Dimensions</strong>
+              <span class="text-xs text-slate-500 dark:text-slate-400">On Request</span>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="flex items-center gap-3 px-2 py-1">
+            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div class="font-mono leading-snug text-slate-900 dark:text-parchment">
+              <strong class="block text-base font-bold">Lifetime Care</strong>
+              <span class="text-xs text-slate-500 dark:text-slate-400">& Maintenance</span>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="flex items-center gap-3 px-2 py-1">
+            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+              <i data-lucide="flame" class="w-5 h-5"></i>
+            </div>
+            <div class="font-mono leading-snug text-slate-900 dark:text-parchment">
+              <strong class="block text-base font-bold">Monastic Blessing</strong>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Available</span>
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="flex items-center gap-3 px-2 py-1">
+            <div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold shrink-0">
+              <i data-lucide="award" class="w-5 h-5"></i>
+            </div>
+            <div class="font-mono leading-snug text-slate-900 dark:text-parchment">
+              <strong class="block text-base font-bold">Certificate of Authenticity</strong>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Included</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
   <!-- SLIDE-OVER ACQUISITION CART DRAWER -->
@@ -406,58 +925,201 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-white dark:bg-patina-900 border-t border-slate-200 dark:border-gold/20 mt-20 pt-12 pb-8">
+  <!-- FOOTER SECTION (EXACT MATCH FOR REFERENCE IMAGE ACROSS ALL PAGES) -->
+  <!-- Main Dark Footer -->
+  <footer class="bg-[#0B0C0E] text-slate-300 pt-16 pb-10 transition-colors duration-300 relative overflow-hidden">
+
+    <!-- Mandala Linework Vector Behind Statue -->
     <div
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-200 dark:border-slate-800 text-xs">
-      <div class="flex flex-col gap-3">
-        <div class="flex items-center gap-2">
-          <i data-lucide="flame" class="w-5 h-5 text-gold"></i>
-          <span
-            class="font-display font-bold text-sm tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha
-            Handicraft</span>
-        </div>
-        <p class="text-slate-500 leading-relaxed">Preserving ancient licchavi lost-wax bronze casting, Ashtadhatu alloy
-          smelting, and 24K gold-leaf fire gilding in Patan since 1982.</p>
-      </div>
-
-      <div>
-        <h5 class="font-display font-bold text-slate-900 dark:text-parchment mb-3 text-sm">Navigation</h5>
-        <ul class="flex flex-col gap-2 text-slate-500">
-          <li><a href="index.html" class="hover:text-gold transition-colors">Atelier Home</a></li>
-          <li><a href="catalog.html" class="hover:text-gold transition-colors">Museum Catalog</a></li>
-          <li><a href="lineage.html" class="hover:text-gold transition-colors">The Lineage</a></li>
-          <li><a href="iconometry.html" class="hover:text-gold transition-colors">Iconometry Builder</a></li>
-          <li><a href="tracker.html" class="hover:text-gold transition-colors">Foundry Ledger</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h5 class="font-display font-bold text-slate-900 dark:text-parchment mb-3 text-sm">Verification</h5>
-        <ul class="flex flex-col gap-2 text-slate-500">
-          <li>Patan Industrial Estate, Lalitpur, Nepal</li>
-          <li>Crucible Furnace #1-6 Operational</li>
-          <li>Assay Grade: 99.9% Ashtadhatu</li>
-          <li>Escrow Protocol: Secure Bank Wire</li>
-        </ul>
-      </div>
-
-      <div>
-        <h5 class="font-display font-bold text-slate-900 dark:text-parchment mb-3 text-sm">Atelier Ledger</h5>
-        <p class="text-slate-500 mb-3">Subscribe for rare specimen releases and furnace crucible logs.</p>
-        <div class="flex gap-2">
-          <input type="email" placeholder="Email address..."
-            class="px-3 py-2 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded text-slate-900 dark:text-parchment flex-1 text-xs font-mono" />
-          <button onclick="alert('Subscribed to Shrestha Atelier Ledger.')"
-            class="px-4 py-2 bg-gold hover:bg-gold-bright text-white dark:text-patina-950 font-mono font-bold text-xs rounded">Join</button>
-        </div>
-      </div>
+      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/6 pointer-events-none opacity-20 text-gold hidden lg:block z-0">
+      <svg class="w-[500px] h-[500px] lg:w-[600px] lg:h-[600px] animate-spin-slow" viewBox="0 0 100 100" fill="none"
+        stroke="currentColor" stroke-width="0.35">
+        <circle cx="50" cy="50" r="48" stroke-dasharray="1 2" />
+        <circle cx="50" cy="50" r="42" />
+        <circle cx="50" cy="50" r="36" stroke-dasharray="2 1" />
+        <circle cx="50" cy="50" r="28" />
+        <path d="M50 2 L50 98 M2 50 L98 50 M16 16 L84 84 M16 84 L84 16" />
+        <circle cx="50" cy="50" r="18" />
+        <circle cx="50" cy="50" r="10" />
+      </svg>
     </div>
 
+    <!-- Far Right Seated Deity Statue (Exact Position & Blend like Reference Photo) -->
     <div
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 flex flex-col sm:flex-row justify-between items-center text-slate-500 font-mono text-[11px] gap-2">
-      <span>© 2026 Shrestha Handicraft Atelier. All Rights Reserved.</span>
-      <span>Sanskrit Iconometry Standard // Shilpa Shastra Compliant</span>
+      class="absolute right-0 bottom-0 pointer-events-none z-10 hidden lg:block w-[360px] xl:w-[480px] h-[540px] xl:h-[600px]">
+      <img src="assets/footer_buddha_statue.jpg" alt="Sacred Deity Statue Visual"
+        class="w-full h-full object-contain object-bottom mix-blend-screen opacity-100 filter brightness-110 contrast-125" />
+    </div>
+
+    <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+
+      <!-- Main Columns Grid with Right Padding to give space for Statue -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 lg:pr-[320px] xl:pr-[420px]">
+
+        <!-- Column 1: Brand Info & Social Icons -->
+        <div class="lg:col-span-4 flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold">
+              <i data-lucide="flame" class="w-5 h-5"></i>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-display font-bold text-base tracking-wider uppercase text-white dark:text-parchment">SHRESTHA
+                HANDICRAFT</span>
+              <span class="font-mono text-[9px] text-gold tracking-widest uppercase">SACRED METALLURGY • PATAN</span>
+            </div>
+          </div>
+
+          <p class="text-slate-400 text-xs leading-relaxed font-sans max-w-sm">
+            Preserving ancient lost-wax bronze casting, Ashtadhatu alloy smelting, and 24K gold-leaf fire gilding in
+            Patan since 1982.
+          </p>
+
+          <div class="relative flex items-center py-1 max-w-sm">
+            <div class="flex-grow border-t border-slate-800"></div>
+            <span class="flex-shrink mx-3 text-gold/60">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            </span>
+            <div class="flex-grow border-t border-slate-800"></div>
+          </div>
+
+          <div class="flex flex-col gap-2.5">
+            <span class="font-mono text-[10px] text-gold tracking-[0.2em] uppercase font-semibold">FOLLOW OUR
+              JOURNEY</span>
+            <div class="flex items-center gap-2.5">
+              <a href="#"
+                class="w-9 h-9 rounded-full border border-gold/40 text-gold hover:bg-gold hover:text-patina-950 flex items-center justify-center transition-colors text-xs font-bold">f</a>
+              <a href="#"
+                class="w-9 h-9 rounded-full border border-gold/40 text-gold hover:bg-gold hover:text-patina-950 flex items-center justify-center transition-colors text-xs font-bold">ig</a>
+              <a href="#"
+                class="w-9 h-9 rounded-full border border-gold/40 text-gold hover:bg-gold hover:text-patina-950 flex items-center justify-center transition-colors text-xs font-bold">yt</a>
+              <a href="#"
+                class="w-9 h-9 rounded-full border border-gold/40 text-gold hover:bg-gold hover:text-patina-950 flex items-center justify-center transition-colors text-xs font-bold">p</a>
+              <a href="#"
+                class="w-9 h-9 rounded-full border border-gold/40 text-gold hover:bg-gold hover:text-patina-950 flex items-center justify-center transition-colors text-xs font-bold">✉</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation Links -->
+        <div class="lg:col-span-2 flex flex-col gap-3">
+          <div class="flex flex-col gap-1 mb-1">
+            <h5 class="font-mono text-xs text-gold tracking-[0.25em] uppercase font-bold">NAVIGATION</h5>
+            <div class="w-6 h-0.5 bg-gold/50"></div>
+          </div>
+          <ul class="flex flex-col gap-2.5 text-xs text-slate-400 font-sans">
+            <li><a href="index.html"
+                class="hover:text-gold transition-colors flex items-center justify-between group"><span>Atelier
+                  Home</span> <span
+                  class="text-gold/40 group-hover:text-gold transition-colors text-[10px]">›</span></a></li>
+            <li><a href="catalog.html"
+                class="hover:text-gold transition-colors flex items-center justify-between group"><span>Museum
+                  Catalog</span> <span
+                  class="text-gold/40 group-hover:text-gold transition-colors text-[10px]">›</span></a></li>
+            <li><a href="lineage.html"
+                class="hover:text-gold transition-colors flex items-center justify-between group"><span>The
+                  Lineage</span> <span
+                  class="text-gold/40 group-hover:text-gold transition-colors text-[10px]">›</span></a></li>
+            <li><a href="iconometry.html"
+                class="hover:text-gold transition-colors flex items-center justify-between group"><span>Iconometry
+                  Builder</span> <span
+                  class="text-gold/40 group-hover:text-gold transition-colors text-[10px]">›</span></a></li>
+            <li><a href="tracker.html"
+                class="hover:text-gold transition-colors flex items-center justify-between group"><span>Foundry
+                  Ledger</span> <span
+                  class="text-gold/40 group-hover:text-gold transition-colors text-[10px]">›</span></a></li>
+            <li><a href="catalog.html"
+                class="hover:text-gold transition-colors flex items-center justify-between group"><span>News &
+                  Articles</span> <span
+                  class="text-gold/40 group-hover:text-gold transition-colors text-[10px]">›</span></a></li>
+            <li><a href="catalog.html"
+                class="hover:text-gold transition-colors flex items-center justify-between group"><span>FAQs</span>
+                <span class="text-gold/40 group-hover:text-gold transition-colors text-[10px]">›</span></a></li>
+            <li><a href="catalog.html"
+                class="hover:text-gold transition-colors flex items-center justify-between group"><span>Contact
+                  Us</span> <span class="text-gold/40 group-hover:text-gold transition-colors text-[10px]">›</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Catalog Links -->
+        <div class="lg:col-span-2 flex flex-col gap-3">
+          <div class="flex flex-col gap-1 mb-1">
+            <h5 class="font-mono text-xs text-gold tracking-[0.25em] uppercase font-bold">CATALOG</h5>
+            <div class="w-6 h-0.5 bg-gold/50"></div>
+          </div>
+          <ul class="flex flex-col gap-2.5 text-xs text-slate-400 font-sans">
+            <li><a href="catalog.html" class="hover:text-gold transition-colors">Buddhist Deities</a></li>
+            <li><a href="catalog.html" class="hover:text-gold transition-colors">Hindu Deities</a></li>
+            <li><a href="catalog.html" class="hover:text-gold transition-colors">Ritual Objects</a></li>
+            <li><a href="catalog.html" class="hover:text-gold transition-colors">Limited Editions</a></li>
+            <li><a href="catalog.html" class="hover:text-gold transition-colors">Custom Commissions</a></li>
+            <li><a href="catalog.html" class="hover:text-gold transition-colors">Restoration Services</a></li>
+            <li><a href="catalog.html" class="hover:text-gold transition-colors">Gift Cards</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Atelier Ledger -->
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <div class="flex flex-col gap-1 mb-1">
+            <h5 class="font-mono text-xs text-gold tracking-[0.25em] uppercase font-bold">ATELIER LEDGER</h5>
+            <div class="w-6 h-0.5 bg-gold/50"></div>
+          </div>
+          <p class="text-slate-400 text-xs font-sans">Subscribe for rare specimen releases and furnace crucible logs.
+          </p>
+
+          <div class="flex items-center mt-2 max-w-md">
+            <input type="email" placeholder="Email address..."
+              class="px-4 py-2.5 bg-slate-900/90 border border-slate-700/80 rounded-l-lg text-white placeholder-slate-500 flex-1 text-xs font-mono focus:outline-none focus:border-gold" />
+            <button onclick="alert('Subscribed to Shrestha Atelier Ledger.')"
+              class="px-5 py-2.5 bg-gradient-to-r from-amber-600 via-gold to-copper hover:from-amber-600 hover:to-copper text-patina-950 font-mono font-bold text-xs uppercase tracking-wider rounded-r-lg shadow">
+              JOIN
+            </button>
+          </div>
+        </div>
+
+        <!-- Spanning Request a Commission Banner Box across columns -->
+        <div class="lg:col-span-12 mt-4">
+          <div
+            class="border border-gold/30 rounded-xl p-5 bg-[#0e131b]/90 backdrop-blur-sm flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold shrink-0 mt-0.5">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="font-mono text-xs text-gold font-bold tracking-wider uppercase">REQUEST A COMMISSION</span>
+                <p class="text-slate-400 text-[11px] font-sans leading-relaxed max-w-xl">
+                  Collaborate with our master artisans to create a bespoke sacred piece for your temple, collection or
+                  personal practice.
+                </p>
+              </div>
+            </div>
+            <a href="catalog.html"
+              class="px-5 py-2.5 border border-gold/60 text-gold hover:bg-gold hover:text-patina-950 font-mono text-[11px] font-bold tracking-wider uppercase rounded-lg transition-all flex items-center gap-2 shrink-0 whitespace-nowrap">
+              <span>INQUIRE NOW</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar Divider & Copyright -->
+      <div
+        class="border-t border-slate-800/80 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-slate-400 font-mono text-[11px] gap-3 relative">
+        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#0B0C0E] px-3 text-gold/60">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+        </div>
+        <span>© 2026 Shrestha Handicraft Atelier. All Rights Reserved.</span>
+        <span class="flex items-center gap-1.5 text-gold/90">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+          <span>Made with devotion in Patan, Nepal</span>
+        </span>
+        <span>Sanskrit Iconometry Standard / Shilpa Shastra Compliant</span>
+      </div>
+
     </div>
   </footer>
 
