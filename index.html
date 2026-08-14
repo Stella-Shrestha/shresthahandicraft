@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shrestha Handicraft — Ancient Sacred Metallurgy Atelier | Patan, Nepal</title>
-  <meta name="description" content="Hand-cast bronze, Ashtadhatu 8-metal, and 24K gold-leaf deity statues crafted using lost-wax iconometry in Patan, Nepal." />
-  
+  <meta name="description"
+    content="Hand-cast bronze, Ashtadhatu 8-metal, and 24K gold-leaf deity statues crafted using lost-wax iconometry in Patan, Nepal." />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -55,51 +59,64 @@
     /* Subtle background grid lines */
     .bg-grid-pattern {
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
       background-size: 40px 40px;
     }
+
     .dark .bg-grid-pattern {
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     }
+
     .html:not(.dark) .bg-grid-pattern {
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     }
   </style>
 </head>
-<body class="bg-patina-50 dark:bg-patina-950 text-slate-800 dark:text-parchment font-sans min-h-screen transition-colors duration-300 bg-grid-pattern">
+
+<body
+  class="bg-patina-50 dark:bg-patina-950 text-slate-800 dark:text-parchment font-sans min-h-screen transition-colors duration-300 bg-grid-pattern">
 
   <!-- STICKY HEADER NAVIGATION -->
-  <header class="sticky top-0 z-50 bg-white/90 dark:bg-patina-950/90 backdrop-blur-md border-b border-slate-200 dark:border-gold/20 transition-colors duration-300">
+  <header
+    class="sticky top-0 z-50 bg-white/90 dark:bg-patina-950/90 backdrop-blur-md border-b border-slate-200 dark:border-gold/20 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
-      
+
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-lg bg-patina-100 dark:bg-patina-900 border border-gold/40 flex items-center justify-center text-gold shadow-sm group-hover:border-gold transition-colors">
+        <div
+          class="w-10 h-10 rounded-lg bg-patina-100 dark:bg-patina-900 border border-gold/40 flex items-center justify-center text-gold shadow-sm group-hover:border-gold transition-colors">
           <i data-lucide="flame" class="w-5 h-5"></i>
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-bold text-base tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha Handicraft</span>
+          <span
+            class="font-display font-bold text-base tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha
+            Handicraft</span>
           <span class="font-mono text-[10px] text-gold tracking-widest uppercase">Sacred Metallurgy • Patan</span>
         </div>
       </a>
 
       <!-- Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-patina-900/80 p-1.5 rounded-lg border border-slate-200 dark:border-slate-800">
-        <a href="index.html" class="px-3.5 py-1.5 font-mono text-xs font-semibold rounded-md text-gold bg-gold/10 border border-gold/30 flex items-center gap-1.5">
+      <nav class="hidden md:flex items-center gap-1  p-1.5 rounded-lg border border-slate-200 dark:border-slate-800">
+        <a href="index.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-semibold rounded-md text-gold bg-gold/10 border border-gold/30 flex items-center gap-1.5">
           <span class="text-copper">01</span> HOME
         </a>
-        <a href="catalog.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+        <a href="catalog.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
           <span class="text-copper">02</span> CATALOG
         </a>
-        <a href="lineage.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+        <a href="lineage.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
           <span class="text-copper">03</span> LINEAGE
         </a>
-        <a href="iconometry.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+        <a href="iconometry.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
           <span class="text-copper">04</span> ICONOMETRY
         </a>
-        <a href="tracker.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+        <a href="tracker.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
           <span class="text-copper">05</span> FOUNDRY LEDGER
         </a>
       </nav>
@@ -107,15 +124,18 @@
       <!-- Right Actions: Theme Toggle & Cart -->
       <div class="flex items-center gap-3">
         <!-- Theme Toggle Button -->
-        <button id="themeToggleIcon" onclick="toggleTheme()" class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors">
+        <button id="themeToggleIcon" onclick="toggleTheme()"
+          class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors">
           <i data-lucide="sun" class="w-5 h-5"></i>
         </button>
 
         <!-- Acquisitions Cart Button -->
-        <button onclick="toggleCartDrawer()" class="flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-lg text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
+        <button onclick="toggleCartDrawer()"
+          class="flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-lg text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
           <i data-lucide="shopping-bag" class="w-4 h-4"></i>
           <span class="hidden sm:inline">ACQUISITIONS</span>
-          <span id="cartCount" class="w-5 h-5 rounded-full bg-copper text-white text-[11px] font-bold flex items-center justify-center">0</span>
+          <span id="cartCount"
+            class="w-5 h-5 rounded-full bg-copper text-white text-[11px] font-bold flex items-center justify-center">0</span>
         </button>
       </div>
     </div>
@@ -123,13 +143,14 @@
 
   <!-- MAIN HERO & CONTENT -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    
+
     <!-- Hero Section -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
-      
+
       <!-- Hero Left Column -->
       <div class="lg:col-span-7 flex flex-col gap-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-white dark:bg-patina-900 border border-gold/30 rounded font-mono text-xs text-gold w-fit shadow-sm">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 bg-white dark:bg-patina-900 border border-gold/30 rounded font-mono text-xs text-gold w-fit shadow-sm">
           <span>SPECIMEN #SH-001</span>
           <span>•</span>
           <span class="text-emerald-500 font-semibold flex items-center gap-1">
@@ -137,38 +158,48 @@
           </span>
         </div>
 
-        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none text-slate-900 dark:text-parchment">
-          <span class="bg-gradient-to-r from-gold-bright via-gold to-copper bg-clip-text text-transparent">Green Tara</span><br />
+        <h1
+          class="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none text-slate-900 dark:text-parchment">
+          <span class="bg-gradient-to-r from-gold-bright via-gold to-copper bg-clip-text text-transparent">Green
+            Tara</span><br />
           Mother of Divine Liberation
         </h1>
 
         <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
-          Hand-cast using lost-wax iconometry (*Cire Perdue*) from 8-metal Ashtadhatu alloy. Adorned with 24K gold-leaf fire gilding and cold-chiseled facial symmetry, crafted according to 14th-century Sanskrit treatise canons in Patan, Nepal.
+          Hand-cast using lost-wax iconometry (*Cire Perdue*) from 8-metal Ashtadhatu alloy. Adorned with 24K gold-leaf
+          fire gilding and cold-chiseled facial symmetry, crafted according to 14th-century Sanskrit treatise canons in
+          Patan, Nepal.
         </p>
 
         <!-- Metadata Chips -->
         <div class="flex flex-wrap gap-2.5">
-          <div class="px-3 py-1.5 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 rounded font-mono text-xs text-slate-500 dark:text-slate-400">
+          <div
+            class="px-3 py-1.5 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 rounded font-mono text-xs text-slate-500 dark:text-slate-400">
             Alloy: <strong class="text-slate-900 dark:text-parchment">Ashtadhatu (8 Metals)</strong>
           </div>
-          <div class="px-3 py-1.5 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 rounded font-mono text-xs text-slate-500 dark:text-slate-400">
+          <div
+            class="px-3 py-1.5 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 rounded font-mono text-xs text-slate-500 dark:text-slate-400">
             Canon: <strong class="text-slate-900 dark:text-parchment">124 Angulas</strong>
           </div>
-          <div class="px-3 py-1.5 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 rounded font-mono text-xs text-slate-500 dark:text-slate-400">
+          <div
+            class="px-3 py-1.5 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 rounded font-mono text-xs text-slate-500 dark:text-slate-400">
             Gilding: <strong class="text-slate-900 dark:text-parchment">24K Gold Leaf</strong>
           </div>
-          <div class="px-3 py-1.5 bg-white dark:bg-patina-900 border border-gold/30 rounded font-mono text-xs text-gold">
+          <div
+            class="px-3 py-1.5 bg-white dark:bg-patina-900 border border-gold/30 rounded font-mono text-xs text-gold">
             Escrow: <strong class="text-gold-bright">$14,800 USD</strong>
           </div>
         </div>
 
         <!-- CTA Action Buttons -->
         <div class="flex flex-wrap items-center gap-4 mt-2">
-          <button onclick="addToCartByProdId('SH-001')" class="px-6 py-3.5 bg-gradient-to-r from-gold to-copper hover:from-gold-bright hover:to-copper-bright text-white dark:text-patina-950 font-mono font-bold text-xs tracking-wider uppercase rounded-lg shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+          <button onclick="addToCartByProdId('SH-001')"
+            class="px-6 py-3.5 bg-gradient-to-r from-gold to-copper hover:from-gold-bright hover:to-copper-bright text-white dark:text-patina-950 font-mono font-bold text-xs tracking-wider uppercase rounded-lg shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
             <i data-lucide="plus" class="w-4 h-4"></i>
             Acquire Hero Specimen
           </button>
-          <button onclick="openSpecimenModalByProdId('SH-001')" class="px-6 py-3.5 bg-white dark:bg-patina-900 border border-gold/40 hover:border-gold text-slate-800 dark:text-parchment hover:text-gold font-mono font-semibold text-xs tracking-wider uppercase rounded-lg transition-colors flex items-center gap-2">
+          <button onclick="openSpecimenModalByProdId('SH-001')"
+            class="px-6 py-3.5 bg-white dark:bg-patina-900 border border-gold/40 hover:border-gold text-slate-800 dark:text-parchment hover:text-gold font-mono font-semibold text-xs tracking-wider uppercase rounded-lg transition-colors flex items-center gap-2">
             <i data-lucide="scan" class="w-4 h-4"></i>
             Inspect Technical Spec
           </button>
@@ -177,10 +208,12 @@
 
       <!-- Hero Right Column (Visual Card) -->
       <div class="lg:col-span-5">
-        <div class="relative bg-white dark:bg-patina-900 border border-gold/30 rounded-2xl p-4 shadow-2xl overflow-hidden group">
+        <div
+          class="relative bg-white dark:bg-patina-900 border border-gold/30 rounded-2xl p-4 shadow-2xl overflow-hidden group">
           <div class="relative w-full h-[460px] rounded-xl overflow-hidden bg-black flex items-center justify-center">
-            <img src="assets/green_tara.jpg" alt="Green Tara Statue" class="max-h-full max-w-full object-contain filter drop-shadow-2xl group-hover:scale-105 transition-transform duration-700 ease-out" />
-            
+            <img src="assets/green_tara.jpg" alt="Green Tara Statue"
+              class="max-h-full max-w-full object-contain filter drop-shadow-2xl group-hover:scale-105 transition-transform duration-700 ease-out" />
+
             <!-- HUD Crosshairs Overlay -->
             <div class="absolute inset-0 border border-gold/20 pointer-events-none">
               <div class="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-gold"></div>
@@ -188,7 +221,9 @@
               <div class="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-gold"></div>
               <div class="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-gold"></div>
               <div class="absolute bottom-3 left-3 right-3 text-center">
-                <span class="bg-black/80 text-gold font-mono text-[10px] px-2.5 py-1 rounded border border-gold/30">ICONOMETRIC SYMMETRY: 99.8%</span>
+                <span
+                  class="bg-black/80 text-gold font-mono text-[10px] px-2.5 py-1 rounded border border-gold/30">ICONOMETRIC
+                  SYMMETRY: 99.8%</span>
               </div>
             </div>
           </div>
@@ -202,58 +237,74 @@
         <div class="flex items-center gap-2 font-mono text-xs text-copper tracking-widest uppercase">
           <span class="w-3 h-0.5 bg-copper"></span> Mathematical Canon
         </div>
-        <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-parchment mt-1">Pratima Lakshana & Lost-Wax Cycle</h2>
+        <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-parchment mt-1">Pratima Lakshana & Lost-Wax
+          Cycle</h2>
         <p class="text-slate-600 dark:text-slate-400 text-sm max-w-2xl mt-1">
-          Every statue emerging from our Patan foundry adheres to strict iconometric proportions derived from ancient Sanskrit treatises (*Samarangana Sutradhara*).
+          Every statue emerging from our Patan foundry adheres to strict iconometric proportions derived from ancient
+          Sanskrit treatises (*Samarangana Sutradhara*).
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Card 1 -->
-        <div class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
+        <div
+          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
           <span class="font-mono text-xs text-gold/60 absolute top-4 right-4">01 // RATIO</span>
-          <div class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
+          <div
+            class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
             <i data-lucide="grid" class="w-5 h-5"></i>
           </div>
           <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">Canonical Angula Grid</h4>
           <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-            108 proportional units (*Angulas*) regulate torso, lotus petal radius, and mudra finger lengths for perfect spiritual resonance.
+            108 proportional units (*Angulas*) regulate torso, lotus petal radius, and mudra finger lengths for perfect
+            spiritual resonance.
           </p>
         </div>
 
         <!-- Card 2 -->
-        <div class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
+        <div
+          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
           <span class="font-mono text-xs text-gold/60 absolute top-4 right-4">02 // ALLOY</span>
-          <div class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
+          <div
+            class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
             <i data-lucide="layers" class="w-5 h-5"></i>
           </div>
-          <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">Ashtadhatu 8-Metal Blend</h4>
+          <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">Ashtadhatu 8-Metal Blend
+          </h4>
           <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-            Crucible formulation blending Gold, Silver, Copper, Zinc, Lead, Tin, Iron, and Mercury traces aligning with celestial frequencies.
+            Crucible formulation blending Gold, Silver, Copper, Zinc, Lead, Tin, Iron, and Mercury traces aligning with
+            celestial frequencies.
           </p>
         </div>
 
         <!-- Card 3 -->
-        <div class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
+        <div
+          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
           <span class="font-mono text-xs text-gold/60 absolute top-4 right-4">03 // SHELL</span>
-          <div class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
+          <div
+            class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
             <i data-lucide="shield" class="w-5 h-5"></i>
           </div>
-          <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">Patan Rice-Husk Shelling</h4>
+          <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">Patan Rice-Husk Shelling
+          </h4>
           <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-            Beeswax model encased in 6 progressive layers of local Kathmandu Valley red clay, silt, and fermented rice husk binder.
+            Beeswax model encased in 6 progressive layers of local Kathmandu Valley red clay, silt, and fermented rice
+            husk binder.
           </p>
         </div>
 
         <!-- Card 4 -->
-        <div class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
+        <div
+          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 hover:border-gold rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl relative">
           <span class="font-mono text-xs text-gold/60 absolute top-4 right-4">04 // FINISH</span>
-          <div class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
+          <div
+            class="w-10 h-10 rounded-lg bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mb-4">
             <i data-lucide="sparkles" class="w-5 h-5"></i>
           </div>
           <h4 class="font-display font-bold text-lg text-slate-900 dark:text-parchment mb-2">24K Gold Leaf Gilding</h4>
           <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">
-            Traditional fire-gilding technique using high-purity gold foil burnished with agate stone and hand-painted gold face details.
+            Traditional fire-gilding technique using high-purity gold foil burnished with agate stone and hand-painted
+            gold face details.
           </p>
         </div>
       </div>
@@ -261,8 +312,11 @@
   </main>
 
   <!-- SLIDE-OVER ACQUISITION CART DRAWER -->
-  <div id="cartOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden items-center justify-end transition-opacity" onclick="closeCartOnOverlay(event)">
-    <div class="w-full max-w-md h-full bg-white dark:bg-patina-950 border-l border-slate-200 dark:border-gold/30 flex flex-col shadow-2xl">
+  <div id="cartOverlay"
+    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden items-center justify-end transition-opacity"
+    onclick="closeCartOnOverlay(event)">
+    <div
+      class="w-full max-w-md h-full bg-white dark:bg-patina-950 border-l border-slate-200 dark:border-gold/30 flex flex-col shadow-2xl">
       <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <h3 class="font-display font-bold text-lg text-slate-900 dark:text-parchment">Selected Acquisitions</h3>
         <button onclick="toggleCartDrawer()" class="text-slate-500 hover:text-slate-900 dark:hover:text-parchment">
@@ -274,7 +328,8 @@
         <!-- JS items rendered here -->
       </div>
 
-      <div class="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-patina-900 flex flex-col gap-3">
+      <div
+        class="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-patina-900 flex flex-col gap-3">
         <div class="flex justify-between font-mono text-sm text-slate-500 dark:text-slate-400">
           <span>Subtotal</span>
           <span id="cartSubtotal">$0 USD</span>
@@ -283,12 +338,14 @@
           <span>Escrow Insurance</span>
           <span class="text-emerald-500 font-semibold">INCLUDED</span>
         </div>
-        <div class="flex justify-between font-mono text-base font-bold text-slate-900 dark:text-parchment pt-2 border-t border-dashed border-slate-300 dark:border-slate-700">
+        <div
+          class="flex justify-between font-mono text-base font-bold text-slate-900 dark:text-parchment pt-2 border-t border-dashed border-slate-300 dark:border-slate-700">
           <span>Total Escrow</span>
           <span id="cartTotal" class="text-gold">$0 USD</span>
         </div>
 
-        <button onclick="triggerCheckoutModal()" class="w-full py-3 bg-gradient-to-r from-gold to-copper text-white dark:text-patina-950 font-mono font-bold text-xs uppercase tracking-wider rounded-lg shadow-md hover:shadow-lg transition-all mt-2">
+        <button onclick="triggerCheckoutModal()"
+          class="w-full py-3 bg-gradient-to-r from-gold to-copper text-white dark:text-patina-950 font-mono font-bold text-xs uppercase tracking-wider rounded-lg shadow-md hover:shadow-lg transition-all mt-2">
           Initiate Escrow Acquisition
         </button>
       </div>
@@ -296,9 +353,12 @@
   </div>
 
   <!-- SPECIMEN INSPECTION MODAL -->
-  <div id="specimenModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[200] hidden items-center justify-center p-4">
-    <div class="bg-white dark:bg-patina-900 border border-gold/40 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-6">
-      <button onclick="closeSpecimenModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-parchment">
+  <div id="specimenModal"
+    class="fixed inset-0 bg-black/80 backdrop-blur-md z-[200] hidden items-center justify-center p-4">
+    <div
+      class="bg-white dark:bg-patina-900 border border-gold/40 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-6">
+      <button onclick="closeSpecimenModal()"
+        class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 dark:hover:text-parchment">
         <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
@@ -309,12 +369,14 @@
       <div class="flex flex-col gap-4">
         <div>
           <span id="modalSpecTag" class="font-mono text-xs text-gold">SPECIMEN #SH-000</span>
-          <h2 id="modalTitle" class="font-display font-bold text-2xl text-slate-900 dark:text-parchment mt-0.5">Title</h2>
+          <h2 id="modalTitle" class="font-display font-bold text-2xl text-slate-900 dark:text-parchment mt-0.5">Title
+          </h2>
         </div>
 
         <p id="modalDesc" class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Description...</p>
 
-        <div class="bg-slate-50 dark:bg-patina-950 p-3.5 rounded-lg border border-slate-200 dark:border-slate-800 font-mono text-xs">
+        <div
+          class="bg-slate-50 dark:bg-patina-950 p-3.5 rounded-lg border border-slate-200 dark:border-slate-800 font-mono text-xs">
           <div class="flex justify-between py-1 border-b border-slate-200 dark:border-slate-800">
             <span class="text-slate-500">Alloy Mix:</span>
             <span id="modalAlloy" class="font-semibold text-slate-900 dark:text-parchment">-</span>
@@ -335,7 +397,8 @@
 
         <div class="flex items-center justify-between mt-auto pt-2">
           <span id="modalPrice" class="font-mono font-bold text-xl text-gold">$0</span>
-          <button id="modalAcquireBtn" class="px-5 py-2.5 bg-gradient-to-r from-gold to-copper text-white dark:text-patina-950 font-mono font-bold text-xs uppercase tracking-wider rounded-lg shadow">
+          <button id="modalAcquireBtn"
+            class="px-5 py-2.5 bg-gradient-to-r from-gold to-copper text-white dark:text-patina-950 font-mono font-bold text-xs uppercase tracking-wider rounded-lg shadow">
             Acquire Specimen
           </button>
         </div>
@@ -345,13 +408,17 @@
 
   <!-- FOOTER -->
   <footer class="bg-white dark:bg-patina-900 border-t border-slate-200 dark:border-gold/20 mt-20 pt-12 pb-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-200 dark:border-slate-800 text-xs">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-200 dark:border-slate-800 text-xs">
       <div class="flex flex-col gap-3">
         <div class="flex items-center gap-2">
           <i data-lucide="flame" class="w-5 h-5 text-gold"></i>
-          <span class="font-display font-bold text-sm tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha Handicraft</span>
+          <span
+            class="font-display font-bold text-sm tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha
+            Handicraft</span>
         </div>
-        <p class="text-slate-500 leading-relaxed">Preserving ancient licchavi lost-wax bronze casting, Ashtadhatu alloy smelting, and 24K gold-leaf fire gilding in Patan since 1982.</p>
+        <p class="text-slate-500 leading-relaxed">Preserving ancient licchavi lost-wax bronze casting, Ashtadhatu alloy
+          smelting, and 24K gold-leaf fire gilding in Patan since 1982.</p>
       </div>
 
       <div>
@@ -379,13 +446,16 @@
         <h5 class="font-display font-bold text-slate-900 dark:text-parchment mb-3 text-sm">Atelier Ledger</h5>
         <p class="text-slate-500 mb-3">Subscribe for rare specimen releases and furnace crucible logs.</p>
         <div class="flex gap-2">
-          <input type="email" placeholder="Email address..." class="px-3 py-2 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded text-slate-900 dark:text-parchment flex-1 text-xs font-mono" />
-          <button onclick="alert('Subscribed to Shrestha Atelier Ledger.')" class="px-4 py-2 bg-gold hover:bg-gold-bright text-white dark:text-patina-950 font-mono font-bold text-xs rounded">Join</button>
+          <input type="email" placeholder="Email address..."
+            class="px-3 py-2 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded text-slate-900 dark:text-parchment flex-1 text-xs font-mono" />
+          <button onclick="alert('Subscribed to Shrestha Atelier Ledger.')"
+            class="px-4 py-2 bg-gold hover:bg-gold-bright text-white dark:text-patina-950 font-mono font-bold text-xs rounded">Join</button>
         </div>
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 flex flex-col sm:flex-row justify-between items-center text-slate-500 font-mono text-[11px] gap-2">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 flex flex-col sm:flex-row justify-between items-center text-slate-500 font-mono text-[11px] gap-2">
       <span>© 2026 Shrestha Handicraft Atelier. All Rights Reserved.</span>
       <span>Sanskrit Iconometry Standard // Shilpa Shastra Compliant</span>
     </div>
@@ -393,4 +463,5 @@
 
   <script src="js/main.js"></script>
 </body>
+
 </html>
