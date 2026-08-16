@@ -113,7 +113,7 @@
     class="sticky top-0 z-50 bg-white/90 dark:bg-patina-950/90 backdrop-blur-md border-b border-slate-200 dark:border-gold/20 transition-colors duration-300">
     <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
 
-      <!-- Brand Logo -->
+      <!-- Brand Logo (Left side on all screen sizes) -->
       <a href="index.html" class="flex items-center gap-3 group">
         <div
           class="w-10 h-10 rounded-lg bg-patina-100 dark:bg-patina-900 border border-gold/40 flex items-center justify-center text-gold shadow-sm group-hover:border-gold transition-colors">
@@ -127,35 +127,36 @@
         </div>
       </a>
 
-      <!-- Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1  p-1.5 rounded-lg border border-slate-200 dark:border-slate-800">
+      <!-- Desktop Navigation Links (Visible on desktop lg+) -->
+      <nav class="hidden lg:flex items-center gap-1 p-1.5">
         <a href="index.html"
           class="px-3.5 py-1.5 font-mono text-xs font-semibold rounded-md text-gold bg-gold/10 border border-gold/30 flex items-center gap-1.5">
-          <span class="text-copper">01</span> HOME
+          HOME
         </a>
         <a href="catalog.html"
           class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
-          <span class="text-copper">02</span> CATALOG
+          CATALOG
         </a>
         <a href="lineage.html"
           class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
-          <span class="text-copper">03</span> LINEAGE
+          LINEAGE
         </a>
         <a href="iconometry.html"
           class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
-          <span class="text-copper">04</span> ICONOMETRY
+          ICONOMETRY
         </a>
         <a href="tracker.html"
           class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
-          <span class="text-copper">05</span> FOUNDRY LEDGER
+          FOUNDRY LEDGER
         </a>
       </nav>
 
-      <!-- Right Actions: Theme Toggle & Cart -->
-      <div class="flex items-center gap-3">
+      <!-- Desktop Actions (Visible on desktop lg+) -->
+      <div class="hidden lg:flex items-center gap-3">
         <!-- Theme Toggle Button -->
         <button id="themeToggleIcon" onclick="toggleTheme()"
-          class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors">
+          class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          title="Toggle Light/Dark Mode">
           <i data-lucide="sun" class="w-5 h-5"></i>
         </button>
 
@@ -163,10 +164,79 @@
         <button onclick="toggleCartDrawer()"
           class="flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-lg text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
           <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span class="hidden sm:inline">ACQUISITIONS</span>
+          <span>ACQUISITIONS</span>
           <span id="cartCount"
             class="w-5 h-5 rounded-full bg-copper text-white text-[11px] font-bold flex items-center justify-center">0</span>
         </button>
+      </div>
+
+      <!-- Mobile & Tablet Actions: Theme Toggle & Hamburger Button (Visible on < lg) -->
+      <div class="flex lg:hidden items-center gap-3">
+        <!-- Theme Toggle Button (Light/Dark mode kept as is) -->
+        <button id="mobileThemeToggleIcon" onclick="toggleTheme()"
+          class="themeToggleBtn w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          title="Toggle Light/Dark Mode">
+          <i data-lucide="sun" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Hamburger Button (Replaces Acquisitions button in header) -->
+        <button id="hamburgerBtn" onclick="toggleMobileMenu()"
+          class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          aria-label="Toggle navigation menu">
+          <i id="hamburgerIcon" data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile & Tablet Dropdown Navigation Drawer -->
+    <div id="mobileMenu"
+      class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-patina-950/95 backdrop-blur-md transition-all duration-300">
+      <div class="max-w-[1584px] mx-auto px-4 sm:px-6 py-4 flex flex-col gap-4">
+        <!-- Navigation Links -->
+        <nav class="flex flex-col gap-1.5">
+          <a href="index.html"
+            class="px-4 py-2.5 font-mono text-xs font-semibold rounded-lg text-gold bg-gold/10 border border-gold/30 flex items-center justify-between">
+            <span>HOME</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gold/60"></i>
+          </a>
+          <a href="catalog.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>CATALOG</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="lineage.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>LINEAGE</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="iconometry.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>ICONOMETRY</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="tracker.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>FOUNDRY LEDGER</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+        </nav>
+
+        <!-- Section Divider -->
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-0.5"></div>
+
+        <!-- Acquisitions Section inside Hamburger Drawer -->
+        <div class="flex flex-col gap-2">
+          <span class="font-mono text-[10px] text-gold tracking-widest uppercase font-semibold px-1">ACQUISITIONS</span>
+          <button onclick="toggleCartDrawer(); toggleMobileMenu();"
+            class="w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-xl text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+              <span>VIEW ACQUISITIONS</span>
+            </div>
+            <span id="mobileCartCount"
+              class="cartCount w-6 h-6 rounded-full bg-copper text-white text-xs font-bold flex items-center justify-center shadow-sm">0</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -176,7 +246,7 @@
 
     <!-- Hero Section -->
     <div
-      class="grid grid-cols-1 max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:grid-cols-12 gap-10 items-center mb-16">
+      class="grid grid-cols-1 max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 lg:py-[110px] py-[52px] lg:grid-cols-12 gap-10 items-center">
 
       <!-- Hero Left Column -->
       <div class="lg:col-span-7 flex flex-col gap-6">
@@ -361,7 +431,7 @@
     </div>
 
     <!-- NEWLY CONSECRATED SECTION -->
-    <section class="max-w-[1584px] mx-auto lg:py-[100px] py-[52px] px-4 sm:px-6 lg:px-8">
+    <section class="max-w-[1584px] mx-auto lg:py-[110px] py-[52px] px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col justify-between text-center items-center mb-12 gap-2">
         <h2
           class="font-display text-4xl sm:text-5xl font-extrabold tracking-wider uppercase text-slate-900 dark:text-parchment">
@@ -405,7 +475,8 @@
               </div>
 
               <div class="flex items-baseline justify-between gap-3 pt-1">
-                <h3 class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight">
+                <h3
+                  class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight truncate">
                   Green Tara Specimen
                 </h3>
                 <span class="font-mono font-bold text-xl sm:text-2xl text-amber-600 dark:text-gold shrink-0">
@@ -476,7 +547,8 @@
               </div>
 
               <div class="flex items-baseline justify-between gap-3 pt-1">
-                <h3 class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight">
+                <h3
+                  class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight truncate">
                   Chenrezig, Four-Armed
                 </h3>
                 <span class="font-mono font-bold text-xl sm:text-2xl text-amber-600 dark:text-gold shrink-0">
@@ -547,7 +619,8 @@
               </div>
 
               <div class="flex items-baseline justify-between gap-3 pt-1">
-                <h3 class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight">
+                <h3
+                  class="font-sans font-bold text-xl sm:text-2xl text-slate-900 dark:text-parchment leading-tight truncate">
                   Dancing Ganesh
                 </h3>
                 <span class="font-mono font-bold text-xl sm:text-2xl text-amber-600 dark:text-gold shrink-0">
@@ -602,8 +675,8 @@
 
     <!-- THE FOUNDRY METHOD SECTION (FROM WAX TO PRESENCE - EXACT MATCHING REFERENCE SCREENSHOT) -->
     <section
-      class=" bg-patina-50 dark:bg-[#0B0C0E] text-slate-800 dark:text-parchment pb-[80px] lg:pb-[110px] transition-colors duration-300">
-      <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+      class=" bg-patina-50 dark:bg-[#0B0C0E] text-slate-800 dark:text-parchment pb-[52px] lg:pb-[110px] transition-colors duration-300">
+      <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12 lg:gap-24">
 
         <!-- Main Top Split Section -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -927,7 +1000,8 @@
 
   <!-- FOOTER SECTION (EXACT MATCH FOR REFERENCE IMAGE ACROSS ALL PAGES) -->
   <!-- Main Dark Footer -->
-  <footer class="bg-[#0B0C0E] text-slate-300 pt-16 pb-10 transition-colors duration-300 relative overflow-hidden">
+  <footer
+    class="bg-[#0B0C0E] text-slate-300 pt-16 pb-10 transition-colors border-t border-slate-200 dark:border-gold/30 duration-300 relative overflow-hidden">
 
     <!-- Mandala Linework Vector Behind Statue -->
     <div

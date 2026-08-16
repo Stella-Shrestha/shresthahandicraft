@@ -244,8 +244,8 @@ function setTheme(theme) {
   }
   localStorage.setItem('sh_theme', theme);
   
-  const iconEl = document.getElementById('themeToggleIcon');
-  if (iconEl) {
+  const iconEls = document.querySelectorAll('#themeToggleIcon, #mobileThemeToggleIcon, .themeToggleBtn');
+  iconEls.forEach(iconEl => {
     if (theme === 'light') {
       iconEl.innerHTML = `<i data-lucide="moon" class="w-5 h-5 text-gold-dark"></i>`;
       iconEl.setAttribute('title', 'Switch to Dark Mode');
@@ -253,8 +253,8 @@ function setTheme(theme) {
       iconEl.innerHTML = `<i data-lucide="sun" class="w-5 h-5 text-gold"></i>`;
       iconEl.setAttribute('title', 'Switch to Light Mode');
     }
-    if (window.lucide) lucide.createIcons();
-  }
+  });
+  if (window.lucide) lucide.createIcons();
 }
 
 // 4. PERSISTENT ACQUISITION CART STATE
@@ -308,6 +308,22 @@ function toggleCartDrawer() {
   }
 }
 
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const icon = document.getElementById('hamburgerIcon');
+  if (menu) {
+    const isHidden = menu.classList.contains('hidden');
+    if (isHidden) {
+      menu.classList.remove('hidden');
+      if (icon) icon.setAttribute('data-lucide', 'x');
+    } else {
+      menu.classList.add('hidden');
+      if (icon) icon.setAttribute('data-lucide', 'menu');
+    }
+    if (window.lucide) lucide.createIcons();
+  }
+}
+
 function closeCartOnOverlay(e) {
   if (e.target.id === 'cartOverlay') {
     toggleCartDrawer();
@@ -316,17 +332,15 @@ function closeCartOnOverlay(e) {
 
 function updateCartUI() {
   const cart = getCart();
-  const countEl = document.getElementById('cartCount');
+  const countEls = document.querySelectorAll('#cartCount, #mobileCartCount, .cartCount');
+  const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
+  countEls.forEach(countEl => {
+    countEl.innerText = totalQty;
+  });
+
   const bodyEl = document.getElementById('cartBody');
   const subtotalEl = document.getElementById('cartSubtotal');
   const totalEl = document.getElementById('cartTotal');
-
-  if (countEl) {
-    const totalQty = cart.reduce((acc, i) => acc + i.qty, 0);
-    countEl.innerText = totalQty;
-  }
-
-  if (!bodyEl) return;
 
   if (cart.length === 0) {
     bodyEl.innerHTML = `

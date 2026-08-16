@@ -53,46 +53,132 @@
 <body class="bg-patina-50 dark:bg-patina-950 text-slate-800 dark:text-parchment font-sans min-h-screen transition-colors duration-300">
 
   <!-- STICKY HEADER NAVIGATION -->
-  <header class="sticky top-0 z-50 bg-white/90 dark:bg-patina-950/90 backdrop-blur-md border-b border-slate-200 dark:border-gold/20 transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+  <header
+    class="sticky top-0 z-50 bg-white/90 dark:bg-patina-950/90 backdrop-blur-md border-b border-slate-200 dark:border-gold/20 transition-colors duration-300">
+    <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+
+      <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-lg bg-patina-100 dark:bg-patina-900 border border-gold/40 flex items-center justify-center text-gold shadow-sm group-hover:border-gold transition-colors">
+        <div
+          class="w-10 h-10 rounded-lg bg-patina-100 dark:bg-patina-900 border border-gold/40 flex items-center justify-center text-gold shadow-sm group-hover:border-gold transition-colors">
           <i data-lucide="flame" class="w-5 h-5"></i>
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-bold text-base tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha Handicraft</span>
+          <span
+            class="font-display font-bold text-base tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha
+            Handicraft</span>
           <span class="font-mono text-[10px] text-gold tracking-widest uppercase">Sacred Metallurgy • Patan</span>
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-1 bg-slate-100 dark:bg-patina-900/80 p-1.5 rounded-lg border border-slate-200 dark:border-slate-800">
-        <a href="index.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
-          <span class="text-copper">01</span> HOME
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 p-1.5">
+        <a href="index.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          HOME
         </a>
-        <a href="catalog.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
-          <span class="text-copper">02</span> CATALOG
+        <a href="catalog.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          CATALOG
         </a>
-        <a href="lineage.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
-          <span class="text-copper">03</span> LINEAGE
+        <a href="lineage.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          LINEAGE
         </a>
-        <a href="iconometry.html" class="px-3.5 py-1.5 font-mono text-xs font-semibold rounded-md text-gold bg-gold/10 border border-gold/30 flex items-center gap-1.5">
-          <span class="text-copper">04</span> ICONOMETRY
+        <a href="iconometry.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-semibold rounded-md text-gold bg-gold/10 border border-gold/30 flex items-center gap-1.5">
+          ICONOMETRY
         </a>
-        <a href="tracker.html" class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
-          <span class="text-copper">05</span> FOUNDRY LEDGER
+        <a href="tracker.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          FOUNDRY LEDGER
         </a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <button id="themeToggleIcon" onclick="toggleTheme()" class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors">
+      <!-- Desktop Actions -->
+      <div class="hidden lg:flex items-center gap-3">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleIcon" onclick="toggleTheme()"
+          class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          title="Toggle Light/Dark Mode">
           <i data-lucide="sun" class="w-5 h-5"></i>
         </button>
 
-        <button onclick="toggleCartDrawer()" class="flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-lg text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
+        <!-- Acquisitions Cart Button -->
+        <button onclick="toggleCartDrawer()"
+          class="flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-lg text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
           <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-          <span class="hidden sm:inline">ACQUISITIONS</span>
-          <span id="cartCount" class="w-5 h-5 rounded-full bg-copper text-white text-[11px] font-bold flex items-center justify-center">0</span>
+          <span>ACQUISITIONS</span>
+          <span id="cartCount"
+            class="cartCount w-5 h-5 rounded-full bg-copper text-white text-[11px] font-bold flex items-center justify-center">0</span>
         </button>
+      </div>
+
+      <!-- Mobile & Tablet Actions -->
+      <div class="flex lg:hidden items-center gap-3">
+        <button id="mobileThemeToggleIcon" onclick="toggleTheme()"
+          class="themeToggleBtn w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          title="Toggle Light/Dark Mode">
+          <i data-lucide="sun" class="w-5 h-5"></i>
+        </button>
+
+        <button id="hamburgerBtn" onclick="toggleMobileMenu()"
+          class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          aria-label="Toggle navigation menu">
+          <i id="hamburgerIcon" data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile & Tablet Dropdown Navigation Drawer -->
+    <div id="mobileMenu"
+      class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-patina-950/95 backdrop-blur-md transition-all duration-300">
+      <div class="max-w-[1584px] mx-auto px-4 sm:px-6 py-4 flex flex-col gap-4">
+        <!-- Navigation Links -->
+        <nav class="flex flex-col gap-1.5">
+          <a href="index.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>HOME</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="catalog.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>CATALOG</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="lineage.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>LINEAGE</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="iconometry.html"
+            class="px-4 py-2.5 font-mono text-xs font-semibold rounded-lg text-gold bg-gold/10 border border-gold/30 flex items-center justify-between">
+            <span>ICONOMETRY</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gold/60"></i>
+          </a>
+          <a href="tracker.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>FOUNDRY LEDGER</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+        </nav>
+
+        <!-- Section Divider -->
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-0.5"></div>
+
+        <!-- Acquisitions Section inside Hamburger Drawer -->
+        <div class="flex flex-col gap-2">
+          <span class="font-mono text-[10px] text-gold tracking-widest uppercase font-semibold px-1">ACQUISITIONS</span>
+          <button onclick="toggleCartDrawer(); toggleMobileMenu();"
+            class="w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-xl text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+              <span>VIEW ACQUISITIONS</span>
+            </div>
+            <span id="mobileCartCount"
+              class="cartCount w-6 h-6 rounded-full bg-copper text-white text-xs font-bold flex items-center justify-center shadow-sm">0</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
