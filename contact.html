@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Shrestha Handicraft Atelier</title>
+  <meta name="description"
+    content="Contact Shrestha Handicraft Atelier in Patan, Nepal. Inquire about museum specimens, commission bespoke lost-wax deity sculptures, or schedule an atelier visit." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            patina: {
+              950: '#0B0C0E',
+              900: '#131518',
+              850: '#1A1D22',
+              800: '#1F2228',
+              50: '#F9F6F0',
+              100: '#F3ECE2'
+            },
+            gold: {
+              DEFAULT: '#D49B4B',
+              bright: '#F5C77E',
+              dark: '#B87A28'
+            },
+            copper: {
+              DEFAULT: '#B86B4B',
+              bright: '#E28766'
+            },
+            parchment: '#F3EED9'
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            mono: ['Space Grotesk', 'monospace'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="js/lucide.min.js"></script>
+</head>
+
+<body
+  class="bg-patina-50 dark:bg-patina-950 text-slate-800 dark:text-parchment font-sans min-h-screen transition-colors duration-300">
+
+  <!-- STICKY HEADER NAVIGATION -->
+  <header
+    class="sticky top-0 z-50 bg-white/90 dark:bg-patina-950/90 backdrop-blur-md border-b border-slate-200 dark:border-gold/20 transition-colors duration-300">
+    <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div
+          class="w-10 h-10 rounded-lg bg-patina-100 dark:bg-patina-900 border border-gold/40 flex items-center justify-center text-gold shadow-sm group-hover:border-gold transition-colors">
+          <i data-lucide="flame" class="w-5 h-5"></i>
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="font-display font-bold text-base tracking-wider uppercase text-slate-900 dark:text-parchment">Shrestha
+            Handicraft</span>
+          <span class="font-mono text-[10px] text-gold tracking-widest uppercase">Sacred Metallurgy • Patan</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 p-1.5">
+        <a href="index.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          HOME
+        </a>
+        <a href="aboutus.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          ABOUT US
+        </a>
+        <a href="catalog.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-medium rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-parchment flex items-center gap-1.5 transition-colors">
+          SHOP
+        </a>
+        <a href="contact.html"
+          class="px-3.5 py-1.5 font-mono text-xs font-semibold rounded-md text-gold bg-gold/10 border border-gold/30 flex items-center gap-1.5">
+          CONTACT US
+        </a>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="hidden lg:flex items-center gap-3">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleIcon" onclick="toggleTheme()"
+          class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          title="Toggle Light/Dark Mode">
+          <i data-lucide="sun" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Acquisitions Cart Button -->
+        <button onclick="toggleCartDrawer()"
+          class="flex items-center gap-2.5 px-4 py-2 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-lg text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span>ACQUISITIONS</span>
+          <span id="cartCount"
+            class="cartCount w-5 h-5 rounded-full bg-copper text-white text-[11px] font-bold flex items-center justify-center">0</span>
+        </button>
+      </div>
+
+      <!-- Mobile & Tablet Actions -->
+      <div class="flex lg:hidden items-center gap-3">
+        <button id="mobileThemeToggleIcon" onclick="toggleTheme()"
+          class="themeToggleBtn w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          title="Toggle Light/Dark Mode">
+          <i data-lucide="sun" class="w-5 h-5"></i>
+        </button>
+
+        <button id="hamburgerBtn" onclick="toggleMobileMenu()"
+          class="w-10 h-10 rounded-lg bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 flex items-center justify-center text-gold hover:border-gold transition-colors"
+          aria-label="Toggle navigation menu">
+          <i id="hamburgerIcon" data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile & Tablet Dropdown Navigation Drawer -->
+    <div id="mobileMenu"
+      class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-patina-950/95 backdrop-blur-md transition-all duration-300">
+      <div class="max-w-[1584px] mx-auto px-4 sm:px-6 py-4 flex flex-col gap-4">
+        <!-- Navigation Links -->
+        <nav class="flex flex-col gap-1.5">
+          <a href="index.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>HOME</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="aboutus.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>ABOUT US</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="catalog.html"
+            class="px-4 py-2.5 font-mono text-xs font-medium rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-patina-900 flex items-center justify-between transition-colors">
+            <span>SHOP</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+          </a>
+          <a href="contact.html"
+            class="px-4 py-2.5 font-mono text-xs font-semibold rounded-lg text-gold bg-gold/10 border border-gold/30 flex items-center justify-between">
+            <span>CONTACT US</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gold/60"></i>
+          </a>
+        </nav>
+
+        <!-- Section Divider -->
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-0.5"></div>
+
+        <!-- Acquisitions Section inside Hamburger Drawer -->
+        <div class="flex flex-col gap-2">
+          <span class="font-mono text-[10px] text-gold tracking-widest uppercase font-semibold px-1">ACQUISITIONS</span>
+          <button onclick="toggleCartDrawer(); toggleMobileMenu();"
+            class="w-full flex items-center justify-between px-4 py-3 bg-gradient-to-r from-gold/15 to-copper/15 hover:from-gold/25 hover:to-copper/25 border border-gold rounded-xl text-gold font-mono text-xs font-bold tracking-wider transition-all shadow-sm hover:shadow-gold/20">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+              <span>VIEW ACQUISITIONS</span>
+            </div>
+            <span
+              class="cartCount w-6 h-6 rounded-full bg-copper text-white text-xs font-bold flex items-center justify-center shadow-sm">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTACT US CONTENT -->
+  <main class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24">
+
+    <!-- HERO HEADER SECTION -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 sm:mb-24">
+
+      <!-- Left Column: Title & Description -->
+      <div class="lg:col-span-4 flex flex-col justify-center gap-6">
+        <div class="flex flex-col gap-2">
+          <h1
+            class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-parchment leading-[1.15]">
+            Let’s Begin a Conversation
+          </h1>
+        </div>
+
+        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-sans max-w-xl">
+          Whether you have a question about a sculpture, need help choosing the right piece, or would like to discuss a
+          custom creation, our atelier team is here to assist.
+        </p>
+
+        <!-- Quick Info Badges -->
+        <div class="flex flex-wrap items-center gap-3 pt-1">
+          <div
+            class="flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">
+            <i data-lucide="map-pin" class="w-4 h-4 text-gold"></i>
+            <span>Thapahiti, Lalitpur 44700, Nepal</span>
+          </div>
+          <div
+            class="flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-patina-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+            <span>Decades of Experience</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Map Card -->
+      <div class="lg:col-span-8">
+        <div
+          class="relative w-full h-[360px] sm:h-[420px] rounded-3xl overflow-hidden border border-slate-200 dark:border-gold/30 shadow-2xl bg-slate-100 dark:bg-patina-900">
+
+          <!-- Map Iframe Embed -->
+          <iframe title="Lalitpur Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14134.42517876805!2d85.3168858!3d27.6679585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19d45e54d36d%3A0x6b6df5b9745b6b15!2sThapahiti%2C%20Lalitpur%2044700!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+            class="w-full h-full border-0 grayscale dark:invert-[0.9] dark:hue-rotate-180 dark:contrast-125 transition-all duration-500"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <!-- Map Header Info Overlay -->
+          <div
+            class="absolute top-4 left-4 bg-white/95 dark:bg-patina-950/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-3.5 rounded-2xl shadow-lg flex items-start gap-3 max-w-[280px] sm:max-w-xs z-10">
+            <div class="flex-1">
+              <h4 class="font-bold text-sm text-slate-900 dark:text-parchment font-sans">Lalitpur Atelier</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5">Thapahiti, Lalitpur 44700, Nepal
+              </p>
+              <div class="flex items-center gap-1 mt-1 text-[11px] text-slate-400 font-mono">
+                <span>No reviews</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <a href="https://maps.google.com/?q=Thapahiti+Lalitpur+44700+Nepal" target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-patina-900 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-gold transition-colors"
+                title="Open in Google Maps">
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
+              <a href="https://maps.google.com/?q=Thapahiti+Lalitpur+44700+Nepal" target="_blank"
+                rel="noopener noreferrer"
+                class="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors"
+                title="Directions">
+                <i data-lucide="navigation" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Get Directions Pill Button Overlay -->
+          <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-10">
+            <a href="https://maps.google.com/?q=Thapahiti+Lalitpur+44700+Nepal" target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/95 dark:bg-patina-950/95 backdrop-blur-md border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-parchment hover:text-gold dark:hover:text-gold rounded-full font-sans text-xs font-bold shadow-xl transition-all hover:scale-105">
+              <i data-lucide="send" class="w-3.5 h-3.5 text-gold"></i>
+              <span>Get Directions</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAIN INTERACTIVE INQUIRY FORM & ATELIER INFO -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
+
+      <!-- Workshop / Atelier Visit Column -->
+      <div class="lg:col-span-4 flex flex-col gap-6">
+        <div
+          class="bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 rounded-3xl p-7 sm:p-8 shadow-xl flex flex-col gap-6">
+
+          <!-- Title & Subtitle -->
+          <div class="flex flex-col gap-3">
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 dark:text-parchment leading-tight">
+              Visit Our Showroom
+            </h2>
+            <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed font-sans">
+              Come and see our craftsmen at work. Browse our full collection in person, or reach out before you visit —
+              we are always happy to assist.
+            </p>
+          </div>
+
+          <!-- Info List -->
+          <div class="flex flex-col gap-5 pt-1">
+
+            <!-- Address Item -->
+            <div class="flex items-start gap-4">
+              <div
+                class="w-11 h-11 rounded-2xl bg-amber-50 dark:bg-patina-800 border border-gold/20 flex items-center justify-center text-gold shrink-0 mt-0.5 shadow-sm">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div class="flex flex-col gap-0.5">
+                <span class="font-bold text-sm text-slate-900 dark:text-parchment font-sans">Address</span>
+                <span class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-sans">Thapahiti, Lalitpur
+                  44700, Nepal</span>
+              </div>
+            </div>
+
+            <!-- Opening Hours Item -->
+            <div class="flex items-start gap-4">
+              <div
+                class="w-11 h-11 rounded-2xl bg-amber-50 dark:bg-patina-800 border border-gold/20 flex items-center justify-center text-gold shrink-0 mt-0.5 shadow-sm">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+              </div>
+              <div class="flex flex-col gap-0.5">
+                <span class="font-bold text-sm text-slate-900 dark:text-parchment font-sans">Opening Hours</span>
+                <span class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-sans">Sunday to Friday, 9:00 AM
+                  - 6:00 PM</span>
+                <span class="text-[11px] text-slate-400 dark:text-slate-500 font-sans">Closed on Saturdays</span>
+              </div>
+            </div>
+
+            <!-- Phone Item -->
+            <div class="flex items-start gap-4">
+              <div
+                class="w-11 h-11 rounded-2xl bg-amber-50 dark:bg-patina-800 border border-gold/20 flex items-center justify-center text-gold shrink-0 mt-0.5 shadow-sm">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div class="flex flex-col gap-0.5">
+                <span class="font-bold text-sm text-slate-900 dark:text-parchment font-sans">Phone</span>
+                <a href="tel:+9779818706474"
+                  class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 hover:text-gold font-mono font-semibold transition-colors">
+                  +977 9818706474
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Action Button -->
+          <div class="pt-2">
+            <a href="#contactInquiryForm"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 via-gold to-copper hover:from-amber-600 hover:to-copper text-patina-950 font-sans font-bold text-xs sm:text-sm rounded-full shadow-md hover:shadow-gold/20 hover:scale-105 transition-all">
+              <span>Send Us a Message</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Form Column -->
+      <div
+        class="lg:col-span-8 bg-white dark:bg-patina-900 border border-slate-200 dark:border-gold/30 rounded-2xl p-7 sm:p-9 shadow-xl flex flex-col gap-6">
+        <div>
+          <h2 class="font-display font-bold text-2xl text-slate-900 dark:text-parchment mb-2">Send an Atelier Inquiry or
+            Commission Request</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-sans">
+            Fill out the form below with your deity preferences, dimensions, and specifications. Our senior curator will
+            get in touch directly.
+          </p>
+        </div>
+
+        <form id="contactInquiryForm" onsubmit="handleContactSubmit(event)" class="flex flex-col gap-5">
+          <!-- Row 1: Name & Email -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Your Full
+                Name *</label>
+              <input type="text" required placeholder="e.g. Tenzin Norbu"
+                class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-sans text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Email
+                Address *</label>
+              <input type="email" required placeholder="e.g. patron@sanctuary.org"
+                class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-sans text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors" />
+            </div>
+          </div>
+
+          <!-- Row 2: Phone & Country -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Phone /
+                WhatsApp</label>
+              <input type="text" placeholder="+1 (555) 000-0000"
+                class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-sans text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors" />
+            </div>
+            <div>
+              <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Subject / Topic</label>
+              <input type="text" placeholder="e.g. Bespoke Sculpture Inquiry or Restoration"
+                class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-sans text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors" />
+            </div>
+          </div>
+
+          <!-- Row 3: Inquiry Type & Deity Preference -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Purpose of
+                Inquiry *</label>
+              <select
+                class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors">
+                <option value="custom">Custom Deity Commission (Lost-Wax)</option>
+                <option value="specimen">Catalog Specimen Acquisition</option>
+                <option value="temple">Monastic / Temple Enshrinement Order</option>
+                <option value="restoration">Antique Bronze Restoration</option>
+                <option value="visit">Schedule Patan Atelier Visit</option>
+                <option value="other">General Question</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Deity /
+                Iconography</label>
+              <select
+                class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors">
+                <option value="green_tara">Green Tara (Compassion &amp; Action)</option>
+                <option value="shakyamuni">Shakyamuni Buddha (Enlightenment)</option>
+                <option value="mahakala">Mahakala 6-Armed (Protector)</option>
+                <option value="vajrasattva">Vajrasattva (Purification)</option>
+                <option value="manjushri">Manjushri (Wisdom Flame Sword)</option>
+                <option value="chenrezig">1000-Armed Avalokiteshvara</option>
+                <option value="other">Other Sacred Iconography</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 4: Alloy & Desired Height -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Preferred
+                Alloy &amp; Finish</label>
+              <select
+                class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-mono text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors">
+                <option value="ashtadhatu_24k">Ashtadhatu 8-Metal (24K Mercury Fire Gilded)</option>
+                <option value="ashtadhatu_coldgold">Ashtadhatu 8-Metal (Cold Gold Face Paint)</option>
+                <option value="bronze_patina">Panchadhatu Bronze (Antiqued Charcoal Patina)</option>
+                <option value="pure_copper">Sacred Himalayan Copper (Hand Hammered)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Desired
+                Height (Inches)</label>
+              <input type="text" placeholder="e.g. 15 in (67.5 Angulas) or 36 in"
+                class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-sans text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors" />
+            </div>
+          </div>
+
+          <!-- Row 5: Message -->
+          <div>
+            <label class="block font-mono text-xs text-slate-700 dark:text-slate-300 mb-1.5 font-semibold">Message &amp;
+              Commission Specifications *</label>
+            <textarea required rows="4"
+              placeholder="Please describe your sacred enshrinement requirements, special mudras, consecration preferences, or delivery timeline..."
+              class="w-full px-4 py-3 bg-slate-50 dark:bg-patina-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs font-sans text-slate-900 dark:text-parchment focus:outline-none focus:border-gold transition-colors"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit"
+            class="w-full py-4 bg-gradient-to-r from-gold via-gold-bright to-copper text-patina-950 font-mono font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg hover:opacity-95 transition-opacity mt-1">
+            Submit Atelier Inquiry
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- SLIDE-OVER ACQUISITION CART DRAWER -->
+  <div id="cartOverlay"
+    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden items-center justify-end transition-opacity"
+    onclick="closeCartOnOverlay(event)">
+    <div
+      class="w-full max-w-md h-full bg-white dark:bg-patina-950 border-l border-slate-200 dark:border-gold/30 flex flex-col shadow-2xl">
+      <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <h3 class="font-display font-bold text-lg text-slate-900 dark:text-parchment">Selected Acquisitions</h3>
+        <button onclick="toggleCartDrawer()" class="text-slate-500 hover:text-slate-900 dark:hover:text-parchment">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="cartBody" class="p-5 flex-1 overflow-y-auto flex flex-col gap-4"></div>
+
+      <div
+        class="p-5 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-patina-900 flex flex-col gap-3">
+        <div class="flex justify-between font-mono text-sm text-slate-500 dark:text-slate-400">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0 USD</span>
+        </div>
+        <div class="flex justify-between font-mono text-sm text-slate-500 dark:text-slate-400">
+          <span>Escrow Insurance</span>
+          <span class="text-emerald-500">Included</span>
+        </div>
+        <div
+          class="flex justify-between font-mono text-base font-bold text-slate-900 dark:text-parchment border-t border-slate-200 dark:border-slate-800 pt-2">
+          <span>Total Escrow</span>
+          <span id="cartTotal" class="text-gold">$0 USD</span>
+        </div>
+        <button onclick="triggerCheckoutModal()"
+          class="w-full py-3 bg-gradient-to-r from-gold via-gold-bright to-copper text-patina-950 font-mono font-bold text-xs uppercase tracking-wider rounded-lg shadow-lg hover:opacity-95 transition-opacity mt-2">
+          Proceed to Escrow Protocol
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER SECTION -->
+  <footer
+    class="bg-[#0B0C0E] text-slate-300 pt-16 pb-10 transition-colors border-t border-slate-200 dark:border-gold/30 duration-300 relative overflow-hidden">
+    <div class="max-w-[1584px] mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8">
+        <!-- Column 1: Brand Info & Social Icons -->
+        <div class="lg:col-span-4 flex flex-col gap-5">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold">
+              <i data-lucide="flame" class="w-5 h-5"></i>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-display font-bold text-base tracking-wider uppercase text-white dark:text-parchment">SHRESTHA
+                HANDICRAFT</span>
+              <span class="font-mono text-[9px] text-gold tracking-widest uppercase">SACRED METALLURGY • PATAN</span>
+            </div>
+          </div>
+
+          <p class="text-slate-400 text-xs leading-relaxed font-sans max-w-sm">
+            Preserving ancient lost-wax bronze casting, Ashtadhatu alloy smelting, and 24K gold-leaf fire gilding in
+            Patan since 1982.
+          </p>
+        </div>
+
+        <!-- Column 2: Navigation Links -->
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <div class="flex flex-col gap-1 mb-1">
+            <h5 class="font-mono text-xs text-gold tracking-[0.25em] uppercase font-bold">NAVIGATION</h5>
+            <div class="w-6 h-0.5 bg-gold/50"></div>
+          </div>
+          <ul class="flex flex-col gap-2.5 text-xs text-slate-400 font-sans">
+            <li><a href="index.html" class="hover:text-gold transition-colors">Home</a></li>
+            <li><a href="aboutus.html" class="hover:text-gold transition-colors">About Us</a></li>
+            <li><a href="catalog.html" class="hover:text-gold transition-colors">Shop</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Contact & Atelier Info -->
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <div class="flex flex-col gap-1 mb-1">
+            <h5 class="font-mono text-xs text-gold tracking-[0.25em] uppercase font-bold">ATELIER CONTACT</h5>
+            <div class="w-6 h-0.5 bg-gold/50"></div>
+          </div>
+          <p class="text-slate-400 text-xs font-sans leading-relaxed">
+            Mangal Bazaar, Patan (Lalitpur), Kathmandu Valley, Nepal<br>
+            Email: concierge@shresthahandicraft.com<br>
+            Phone: +977 1-5523849 / +977 9851023948
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Bar Divider & Copyright -->
+      <div
+        class="border-t border-slate-800/80 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-slate-400 font-mono text-[11px] gap-3 relative">
+        <span>© 2026 Shrestha Handicraft Atelier. All Rights Reserved.</span>
+        <span class="flex items-center gap-1.5 text-gold/90">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+          <span>Made with devotion in Patan, Nepal</span>
+        </span>
+        <span>Sanskrit Iconometry Standard / Shilpa Shastra Compliant</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      alert('Thank you! Your atelier inquiry has been received. A senior curator from our Patan foundry will review your specifications and contact you directly.');
+      if (e.target) e.target.reset();
+    }
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
